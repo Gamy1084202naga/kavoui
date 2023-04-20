@@ -296,7 +296,7 @@ function Kavo.CreateLib(kavName, themeList)
     title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     title.BackgroundTransparency = 1.000
     title.BorderSizePixel = 0
-    title.Position = UDim2.new(0.270428565, 0, 0.615827592, 0)
+    title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
     title.Size = UDim2.new(0, 204, 0, 8)
     title.Font = Enum.Font.Gotham
     title.RichText = true
@@ -309,7 +309,7 @@ function Kavo.CreateLib(kavName, themeList)
     Time.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Time.BackgroundTransparency = 1.000
     Time.BorderSizePixel = 0
-    Time.Position = UDim2.new(0.270428565, 0, 0.223827592, 0)
+    Time.Position = UDim2.new(0.285428565, 0, 0.213827592, 0)
     Time.Size = UDim2.new(0, 204, 0, 8)
     Time.Font = Enum.Font.Gotham
     Time.RichText = true
