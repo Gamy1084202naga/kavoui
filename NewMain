@@ -223,6 +223,8 @@ function Kavo.CreateLib(kavName, themeList)
     local User = Instance.new("TextLabel")
     local time = Instance.new("TextLabel")
     local close = Instance.new("ImageButton")
+    local Fps = Instance.new("TextLabel")
+    local Ping = Instance.new("TextLabel")
     local MainSide = Instance.new("Frame")
     local sideCorner = Instance.new("UICorner")
     local coverup_2 = Instance.new("Frame")
@@ -293,7 +295,7 @@ function Kavo.CreateLib(kavName, themeList)
     title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     title.BackgroundTransparency = 1.000
     title.BorderSizePixel = 0
-    title.Position = UDim2.new(0.405428565, 0, 0.365827592, 0)
+    title.Position = UDim2.new(0.455428565, 0, 0.365827592, 0)
     title.Size = UDim2.new(0, 204, 0, 8)
     title.Font = Enum.Font.Gotham
     title.RichText = true
@@ -364,6 +366,44 @@ function Kavo.CreateLib(kavName, themeList)
         getgenv().Executed = false
         ScreenGui:Destroy()
     end)
+
+    Fps.Name = "Fps"
+    Fps.Parent = MainHeader
+    Fps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Fps.BackgroundTransparency = 1.000
+    Fps.Position = UDim2.new(0.709999988, 0, 0.647827592, 0)
+    Fps.Size = UDim2.new(0, 125, 0, 25)
+    Fps.Font = Enum.Font.Gotham
+    Fps.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Fps.TextScaled = true
+    Fps.TextSize = 14.000
+    Fps.TextWrapped = true
+
+    Ping.Name = "Ping"
+    Ping.Parent = MainHeader
+    Ping.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Ping.BackgroundTransparency = 1.000
+    Ping.BorderColor3 = Color3.fromRGB(255, 255, 255)
+    Ping.Position = UDim2.new(0.709999988, 0, 0.248827592, 0)
+    Ping.Size = UDim2.new(0, 125, 0, 25)
+    Ping.Font = Enum.Font.Gotham
+    Ping.TextColor3 = Color3.fromRGB(253, 253, 253)
+    Ping.TextScaled = true
+    Ping.TextSize = 14.000
+    Ping.TextWrapped = true
+
+local script = Instance.new('LocalScript', Fps)
+local RunService = game:GetService("RunService")
+RunService.RenderStepped:Connect(function(frame) -- This will fire every time a frame is rendered
+script.Parent.Text = ("FPS: "..math.round(1/frame)) 
+end)
+
+
+local script = Instance.new('LocalScript', Ping)
+local RunService = game:GetService("RunService")
+RunService.RenderStepped:Connect(function(ping) 
+script.Parent.Text = ("Ping: " ..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString(math.round(2/ping))) -- your ping
+end)
 
     MainSide.Name = "MainSide"
     MainSide.Parent = Main
