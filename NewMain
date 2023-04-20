@@ -372,12 +372,10 @@ function Kavo.CreateLib(kavName, themeList)
     Fps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Fps.BackgroundTransparency = 1.000
     Fps.Position = UDim2.new(0.709999988, 0, 0.647827592, 0)
-    Fps.Size = UDim2.new(0, 125, 0, 25)
+    Fps.Size = UDim2.new(0, 204, 0, 8)
     Fps.Font = Enum.Font.Gotham
-    Fps.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Fps.TextScaled = true
-    Fps.TextSize = 14.000
-    Fps.TextWrapped = true
+    Fps.TextColor3 = Color3.fromRGB(255, 255, 255)    
+    Fps.TextSize = 13.000    
 
     Ping.Name = "Ping"
     Ping.Parent = MainHeader
@@ -385,16 +383,14 @@ function Kavo.CreateLib(kavName, themeList)
     Ping.BackgroundTransparency = 1.000
     Ping.BorderColor3 = Color3.fromRGB(255, 255, 255)
     Ping.Position = UDim2.new(0.709999988, 0, 0.248827592, 0)
-    Ping.Size = UDim2.new(0, 125, 0, 25)
+    Ping.Size = UDim2.new(0, 204, 0, 8)
     Ping.Font = Enum.Font.Gotham
-    Ping.TextColor3 = Color3.fromRGB(253, 253, 253)
-    Ping.TextScaled = true
-    Ping.TextSize = 14.000
-    Ping.TextWrapped = true
+    Ping.TextColor3 = Color3.fromRGB(255, 255, 255)    
+    Ping.TextSize = 13.000
 
 local script = Instance.new('LocalScript', Fps)
 local RunService = game:GetService("RunService")
-RunService.RenderStepped:Connect(function(frame) -- This will fire every time a frame is rendered
+RunService.RenderStepped:Connect(function(frame)
 script.Parent.Text = ("FPS: "..math.round(1/frame)) 
 end)
 
