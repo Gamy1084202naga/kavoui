@@ -295,7 +295,7 @@ function Kavo.CreateLib(kavName, themeList)
     title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     title.BackgroundTransparency = 1.000
     title.BorderSizePixel = 0
-    title.Position = UDim2.new(0.455428565, 0, 0.365827592, 0)
+    title.Position = UDim2.new(0.405428565, 0, 0.365827592, 0)
     title.Size = UDim2.new(0, 204, 0, 8)
     title.Font = Enum.Font.Gotham
     title.RichText = true
@@ -371,22 +371,24 @@ function Kavo.CreateLib(kavName, themeList)
     Fps.Parent = MainHeader
     Fps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Fps.BackgroundTransparency = 1.000
-    Fps.Position = UDim2.new(0.709999988, 0, 0.647827592, 0)
+    Fps.Position = UDim2.new(0.609999988, 0, 0.647827592, 0)
     Fps.Size = UDim2.new(0, 204, 0, 8)
     Fps.Font = Enum.Font.Gotham
     Fps.TextColor3 = Color3.fromRGB(255, 255, 255)    
     Fps.TextSize = 13.000    
+    Fps.TextXAlignment = Enum.TextXAlignment.Left
 
     Ping.Name = "Ping"
     Ping.Parent = MainHeader
     Ping.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Ping.BackgroundTransparency = 1.000
     Ping.BorderColor3 = Color3.fromRGB(255, 255, 255)
-    Ping.Position = UDim2.new(0.709999988, 0, 0.248827592, 0)
+    Ping.Position = UDim2.new(0.609999988, 0, 0.248827592, 0)
     Ping.Size = UDim2.new(0, 204, 0, 8)
     Ping.Font = Enum.Font.Gotham
     Ping.TextColor3 = Color3.fromRGB(255, 255, 255)    
     Ping.TextSize = 13.000
+    Ping.TextXAlignment = Enum.TextXAlignment.Left
 
 local script = Instance.new('LocalScript', Fps)
 local RunService = game:GetService("RunService")
