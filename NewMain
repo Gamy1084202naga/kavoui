@@ -295,14 +295,43 @@ function Kavo.CreateLib(kavName, themeList)
     title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     title.BackgroundTransparency = 1.000
     title.BorderSizePixel = 0
-    title.Position = UDim2.new(0.405428565, 0, 0.365827592, 0)
+    title.Position = UDim2.new(0.505428565, 0, 0.365827592, 0)
     title.Size = UDim2.new(0, 204, 0, 8)
     title.Font = Enum.Font.Gotham
     title.RichText = true
-    title.Text = kavName
+    title.Text = "ROMHUB"
     title.TextColor3 = themeList.TextColor
-    title.TextSize = 16.000
-    title.TextXAlignment = Enum.TextXAlignment.Left    
+    title.TextSize = 16.000   
+
+    Time.Name = "Time"
+    Time.Parent = MainHeader
+    Time.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Time.BackgroundTransparency = 1.000
+    Time.BorderSizePixel = 0
+    Time.Position = UDim2.new(0.505428565, 0, 0.248827592, 0)
+    Time.Size = UDim2.new(0, 204, 0, 8)
+    Time.Font = Enum.Font.Gotham
+    Time.RichText = true
+    Time.Text = "N/A"
+    Time.TextColor3 = themeList.TextColor
+    Time.TextSize = 13.000
+       
+    function UpdateTime()
+        local GameTime = math.floor(workspace.DistributedGameTime+0.5)
+        local Hour = math.floor(GameTime/(60^2))%24
+        local Minute = math.floor(GameTime/(60^1))%60
+        local Second = math.floor(GameTime/(60^0))%60
+        Time.Text = ("Hr(s) : "..Hour.." Min(s) : "..Minute.." Sec(s) : "..Second)
+    end
+    
+    spawn(function()
+        while task.wait() do
+            pcall(function()
+                UpdateTime()
+            end)
+        end
+    end)
+        
     
     User.Name = "User"
     User.Parent = MainHeader
