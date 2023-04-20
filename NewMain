@@ -296,7 +296,7 @@ function Kavo.CreateLib(kavName, themeList)
     title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     title.BackgroundTransparency = 1.000
     title.BorderSizePixel = 0
-    title.Position = UDim2.new(0.270428565, 0, 0.625827592, 0)
+    title.Position = UDim2.new(0.270428565, 0, 0.615827592, 0)
     title.Size = UDim2.new(0, 204, 0, 8)
     title.Font = Enum.Font.Gotham
     title.RichText = true
@@ -309,7 +309,7 @@ function Kavo.CreateLib(kavName, themeList)
     Time.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Time.BackgroundTransparency = 1.000
     Time.BorderSizePixel = 0
-    Time.Position = UDim2.new(0.270428565, 0, 0.233827592, 0)
+    Time.Position = UDim2.new(0.270428565, 0, 0.223827592, 0)
     Time.Size = UDim2.new(0, 204, 0, 8)
     Time.Font = Enum.Font.Gotham
     Time.RichText = true
@@ -322,7 +322,7 @@ function Kavo.CreateLib(kavName, themeList)
         local Hour = math.floor(GameTime/(60^2))%24
         local Minute = math.floor(GameTime/(60^1))%60
         local Second = math.floor(GameTime/(60^0))%60
-        Time.Text = ("Time : "..Hour.." : "..Minute.." : "..Second)
+        Time.Text = ("Timer "..Hour.." : "..Minute.." : "..Second)
     end
     
     spawn(function()
@@ -342,8 +342,7 @@ function Kavo.CreateLib(kavName, themeList)
     User.Position = UDim2.new(0.091428565, 0, 0.248827592, 0)
     User.Size = UDim2.new(0, 204, 0, 8)
     User.Font = Enum.Font.Gotham
-    User.RichText = true    
-    User.Text = user
+    User.RichText = true        
     User.TextColor3 = themeList.TextColor
     User.TextSize = 15.000
     User.TextXAlignment = Enum.TextXAlignment.Left
