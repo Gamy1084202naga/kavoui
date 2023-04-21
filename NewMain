@@ -422,7 +422,7 @@ function Kavo.CreateLib(kavName, themeList)
     Setting.Position = UDim2.new(0.909999988, 0, 0.137999997, 0)
     Setting.Size = UDim2.new(0, 21, 0, 21)
     Setting.ZIndex = 2
-    Setting.Image = "rbxassetid://13199393590" 
+    Setting.Image = "rbxassetid://1524766714" 
     Setting.ImageColor3 = Color3.fromRGB(255,255,255)     
     Setting.MouseButton1Click:Connect(function()
         if NOSetting then
