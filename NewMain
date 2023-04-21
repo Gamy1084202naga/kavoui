@@ -313,10 +313,10 @@ function Kavo.CreateLib(kavName, themeList)
     fact.Name = "Fact"
     fact.Parent = MainHeader
     fact.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    fact.BackgroundTransparency = 0
+    fact.BackgroundTransparency = 1
     fact.BorderSizePixel = 0
     fact.Position = UDim2.new(0.405428565, 0, 0.615827592, 0)
-    fact.Size = UDim2.new(0, 62, 0, 9)
+    fact.Size = UDim2.new(0, 64, 0, 9)
     fact.Font = Enum.Font.Gotham
     fact.RichText = true
     fact.Text = ""
