@@ -220,12 +220,17 @@ function Kavo.CreateLib(kavName, themeList)
     local coverup = Instance.new("Frame")
     local UserImage = Instance.new("ImageLabel")
     local title = Instance.new("TextLabel")
-    local Time = Instance.new("TextLabel")
-    local User = Instance.new("TextLabel")
+    local fact = Instance.new("TextButton")
+    local FactName = Instance.new("TextLabel")
+    local Factclose = Instance.new("TextButton")
+    local UICorner = Instance.new("UICorner")
+    local UICorners = Instance.new("UICorner") 
+    local Time = Instance.new("TextLabel")    
+    local User = Instance.new("TextLabel")    
     local time = Instance.new("TextLabel")
     local close = Instance.new("ImageButton")
-    local Fps = Instance.new("TextLabel")
-    local Ping = Instance.new("TextLabel")
+    local Fps = Instance.new("TextLabel")    
+    local Ping = Instance.new("TextLabel")    
     local MainSide = Instance.new("Frame")
     local sideCorner = Instance.new("UICorner")
     local coverup_2 = Instance.new("Frame")
@@ -303,7 +308,19 @@ function Kavo.CreateLib(kavName, themeList)
     title.Text = "ROMHUB"
     title.TextColor3 = themeList.TextColor
     title.TextSize = 16.000   
-
+    
+    fact.Name = "Fact"
+    fact.Parent = MainHeader
+    fact.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    fact.BackgroundTransparency = 1.000
+    fact.BorderSizePixel = 0
+    fact.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
+    fact.Size = UDim2.new(0, 204, 0, 8)
+    fact.Font = Enum.Font.Gotham
+    fact.RichText = true
+    fact.Text = ""
+    fact.TextColor3 = themeList.TextColor 
+                
     Time.Name = "Time"
     Time.Parent = MainHeader
     Time.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -322,7 +339,7 @@ function Kavo.CreateLib(kavName, themeList)
         local Hour = math.floor(GameTime/(60^2))%24
         local Minute = math.floor(GameTime/(60^1))%60
         local Second = math.floor(GameTime/(60^0))%60
-        Time.Text = ("Timer "..Hour.." : "..Minute.." : "..Second)
+        Time.Text = ("Timer "..Hour.." Hr : "..Minute.." Min : "..Second.." Sec")
     end
     
     spawn(function()
@@ -332,8 +349,7 @@ function Kavo.CreateLib(kavName, themeList)
             end)
         end
     end)
-        
-    
+  
     User.Name = "User"
     User.Parent = MainHeader
     User.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -373,6 +389,8 @@ function Kavo.CreateLib(kavName, themeList)
 	end
 	end)
 
+   
+
     close.Name = "close"
     close.Parent = MainHeader
     close.BackgroundTransparency = 1.000
@@ -383,6 +401,7 @@ function Kavo.CreateLib(kavName, themeList)
     close.ImageRectOffset = Vector2.new(284, 4)
     close.ImageRectSize = Vector2.new(24, 24)
     close.MouseButton1Click:Connect(function()
+        Utility:TweenObject(FactName, {TextTransparency = 1}, 0.1)
         game.TweenService:Create(close, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
             ImageTransparency = 1
         }):Play()
@@ -407,7 +426,8 @@ function Kavo.CreateLib(kavName, themeList)
     Fps.TextSize = 13.000    
     Fps.TextXAlignment = Enum.TextXAlignment.Left
 
-    Ping.Name = "Ping"
+
+Ping.Name = "Ping"
     Ping.Parent = MainHeader
     Ping.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Ping.BackgroundTransparency = 1.000
@@ -495,7 +515,69 @@ end)
     infoContainer.Position = UDim2.new(0.299047619, 0, 0.874213815, 0)
     infoContainer.Size = UDim2.new(0, 368, 0, 33)
 
+fact.MouseButton1Click:Connect(function()
+                    if Fact then
+
+
+                         else
+                       getgenv().Fact = true
+                        Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+                        wait(12)
+                  if Fact == false then
+
+                  else
+                        
+                        Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
+                        wait(0)
+                        getgenv().Fact = false
+             end
+                    end
+                end)
+
+                FactName.Name = "FactName"
+                FactName.Parent = Main
+                FactName.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                FactName.Position = UDim2.new(0.5,0,2,0)
+                FactName.Size = UDim2.new(0, 353, 0, 150)
+                FactName.ZIndex = 9
+                FactName.AnchorPoint = Vector2.new(0.5, 0.5)
+                FactName.Font = Enum.Font.GothamSemibold
+                FactName.Text = "So u just click our name and u know why our hub Name ROMHUB?? It come from my username that start with rom. my middle brother who give me this username. And i think it pretty iconic so i use them to this time! And the hub is from other script like to end with hub! That the end!"
+                FactName.RichText = true
+                FactName.TextWrapped = true
+                FactName.TextColor3 = themeList.TextColor
+                Objects[FactName] = "TextColor3"
+                FactName.TextSize = 14.000
+                FactName.TextXAlignment = Enum.TextXAlignment.Left
+                FactName.TextYAlignment = Enum.TextYAlignment.Top
+                Objects[FactName] = "BackgroundColor3"
+
+UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.Parent = FactName
+
+Factclose.Parent = FactName 
+Factclose.BackgroundColor3 = Color3.fromRGB(255,1,1)
+Factclose.BackgroundTransparency = 1
+Factclose.Position = UDim2.new(0.9, 0, 0.2552890813, 0)
+Factclose.Size = UDim2.new(0, 0, 0, 0)
+Factclose.Text = "CLOSE RN😡"
+Factclose.TextTransparency = 1
+Factclose.TextColor3 = Color3.fromRGB(255, 255, 255)
+Factclose.TextSize = 14.000
+
+UICorners.CornerRadius = UDim.new(0, 10) 
+
+UICorners.Parent = Factclose                
     
+Factclose.MouseButton1Click:Connect(function()
+Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
+                        wait(0)
+                        getgenv().Fact = false
+end)
+
     coroutine.wrap(function()
         while wait() do
             Main.BackgroundColor3 = themeList.Background
@@ -2800,3 +2882,5 @@ end)
     return Tabs
 end
 return Kavo
+
+
