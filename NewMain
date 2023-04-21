@@ -440,7 +440,7 @@ function Kavo.CreateLib(kavName, themeList)
     Fps.Parent = MainHeader
     Fps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Fps.BackgroundTransparency = 1.000
-    Fps.Position = UDim2.new(0.679999988, 0, 0.647827592, 0)
+    Fps.Position = UDim2.new(0.649999988, 0, 0.647827592, 0)
     Fps.Size = UDim2.new(0, 204, 0, 8)
     Fps.Font = Enum.Font.Gotham
     Fps.TextColor3 = Color3.fromRGB(255, 255, 255)    
@@ -453,7 +453,7 @@ Ping.Name = "Ping"
     Ping.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Ping.BackgroundTransparency = 1.000
     Ping.BorderColor3 = Color3.fromRGB(255, 255, 255)
-    Ping.Position = UDim2.new(0.679999988, 0, 0.248827592, 0)
+    Ping.Position = UDim2.new(0.649999988, 0, 0.248827592, 0)
     Ping.Size = UDim2.new(0, 204, 0, 8)
     Ping.Font = Enum.Font.Gotham
     Ping.TextColor3 = Color3.fromRGB(255, 255, 255)    
