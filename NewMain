@@ -300,7 +300,7 @@ function Kavo.CreateLib(kavName, themeList)
     title.Name = "title"
     title.Parent = MainHeader
     title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    title.BackgroundTransparency = 1.000
+    title.BackgroundTransparency = 1
     title.BorderSizePixel = 0
     title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
     title.Size = UDim2.new(0, 204, 0, 8)
@@ -313,7 +313,7 @@ function Kavo.CreateLib(kavName, themeList)
     fact.Name = "Fact"
     fact.Parent = MainHeader
     fact.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    fact.BackgroundTransparency = 1.000
+    fact.BackgroundTransparency = 0
     fact.BorderSizePixel = 0
     fact.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
     fact.Size = UDim2.new(0, 204, 0, 8)
@@ -418,7 +418,7 @@ function Kavo.CreateLib(kavName, themeList)
 
     Setting.Name = "Setting"
     Setting.Parent = MainHeader
-    Setting.BackgroundTransparency = 1.000
+    Setting.BackgroundTransparency = 0
     Setting.Position = UDim2.new(0.909999988, 0, 0.137999997, 0)
     Setting.Size = UDim2.new(0, 21, 0, 21)
     Setting.ZIndex = 2
