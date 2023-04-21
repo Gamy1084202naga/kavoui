@@ -138,20 +138,22 @@ local themeStyles = {
 }
 local oldTheme = ""
 
-local SettingsT = {
+local SettingsT = { 
 
 }
 
-local Name = "KavoConfig.JSON"
-
-pcall(function()
-
-if not pcall(function() readfile(Name) end) then
-writefile(Name, game:service'HttpService':JSONEncode(SettingsT))
+if isfolder("/romhub") then
+   if isfile("/romhub/UiSetting", "") then
+   
+else
+   writefile("/romhub/UiSetting", "") 
+   
+    
 end
-
-Settings = game:service'HttpService':JSONEncode(readfile(Name))
-end)
+else
+  makefolder("romhub")
+  writefile("/romhub/UiSetting", "")   
+end
 
 
 local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
@@ -229,7 +231,9 @@ function Kavo.CreateLib(kavName, themeList)
     local User = Instance.new("TextLabel")    
     local time = Instance.new("TextLabel")
     local close = Instance.new("ImageButton")
-    local Setting = Instance.new("ImageButton")    
+    local Setting = Instance.new("ImageButton")
+    local SettingUI = Instance.new("Frame")
+    local Anonymous = Instance.new("TextButton")    
     local Fps = Instance.new("TextLabel")    
     local Ping = Instance.new("TextLabel")    
     local MainSide = Instance.new("Frame")
@@ -293,8 +297,7 @@ function Kavo.CreateLib(kavName, themeList)
     UserImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     UserImage.BackgroundTransparency = 1.000
     UserImage.Position = UDim2.new(0.009, 0, 0, 0)
-    UserImage.Size = UDim2.new(0, 35, 0, 35)
-    UserImage.Image = pfp 
+    UserImage.Size = UDim2.new(0, 35, 0, 35)      
 	
 	
     title.Name = "title"
@@ -321,7 +324,7 @@ function Kavo.CreateLib(kavName, themeList)
     fact.RichText = true
     fact.Text = ""
     fact.TextColor3 = themeList.TextColor 
-                
+               
     Time.Name = "Time"
     Time.Parent = MainHeader
     Time.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -342,8 +345,8 @@ function Kavo.CreateLib(kavName, themeList)
         local Second = math.floor(GameTime/(60^0))%60
         Time.Text = ("Timer "..Hour.." Hr : "..Minute.." Min : "..Second.." Sec")
     end
-    
-    spawn(function()
+       
+spawn(function()
         while task.wait() do
             pcall(function()
                 UpdateTime()
@@ -366,7 +369,7 @@ function Kavo.CreateLib(kavName, themeList)
 
     User.Text = "N/A"
 
-    User.Text = user
+    
 
     time.Name = "time"
     time.Parent = MainHeader
@@ -382,16 +385,14 @@ function Kavo.CreateLib(kavName, themeList)
     time.TextXAlignment = Enum.TextXAlignment.Left
 
 
-    time.Text = "N/A"
+    time.Text = "N/A"   
 
-    spawn(function()
+   spawn(function()
 	while wait() do
 	time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
 	end
 	end)
-
-   
-
+    
     close.Name = "close"
     close.Parent = MainHeader
     close.BackgroundTransparency = 1.000
@@ -420,22 +421,24 @@ function Kavo.CreateLib(kavName, themeList)
     Setting.Parent = MainHeader
     Setting.BackgroundTransparency = 1
     Setting.Position = UDim2.new(0.909999988, 0, 0.137999997, 0)
-    Setting.Size = UDim2.new(0, 21, 0, 21)
+    Setting.Size = UDim2.new(0, 20, 0, 20)
     Setting.ZIndex = 2
     Setting.Image = "rbxassetid://13199563311" 
-    Setting.ImageColor3 = Color3.fromRGB(255,255,255)     
-    Setting.MouseButton1Click:Connect(function()
-        if NOSetting then
-
-                         else
-                       getgenv().NOSetting = true
-                        Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
-                        wait(12)
-          Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
+    Setting.ImageColor3 = Color3.fromRGB(255,255,255)
+local st = Setting         
+st.MouseButton1Click:Connect(function()
+if setting then
+Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
-         end         
-    end)
+getgenv().setting = false
+
+else
+getgenv().setting = true
+                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+end
+end)                    
+ 
 
     Fps.Name = "Fps"
     Fps.Parent = MainHeader
@@ -539,23 +542,17 @@ end)
 
 fact.MouseButton1Click:Connect(function()
                     if Fact then
-
+Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
+                        
+                        getgenv().Fact = false
 
                          else
                        getgenv().Fact = true
                         Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
-                        wait(12)
-                  if Fact == false then
-
-                  else
-                        
-                        Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
-                        wait(0)
-                        getgenv().Fact = false
-             end
-                    end
+                                          
+    end
                 end)
 
                 FactName.Name = "FactName"
@@ -566,7 +563,7 @@ fact.MouseButton1Click:Connect(function()
                 FactName.ZIndex = 9
                 FactName.AnchorPoint = Vector2.new(0.5, 0.5)
                 FactName.Font = Enum.Font.GothamSemibold
-                FactName.Text = "So u just click our name and u know why our hub Name ROMHUB?? It come from my username that start with rom. my middle brother who give me this username. And i think it pretty iconic so i use them to this time! And the hub is from other script like to end with hub! That the end!"
+                FactName.Text = "So u just click our name and u know why our hub Name is ROMHUB?? It come from my username that start with rom. And i think it pretty iconic so i use them to this time! And the hub is from other script like to end with hub! That the end!"
                 FactName.RichText = true
                 FactName.TextWrapped = true
                 FactName.TextColor3 = themeList.TextColor
@@ -578,6 +575,8 @@ fact.MouseButton1Click:Connect(function()
 
 UICorner.CornerRadius = UDim.new(0, 4)
                 UICorner.Parent = FactName
+
+
 
 Factclose.Parent = FactName 
 Factclose.BackgroundColor3 = Color3.fromRGB(255,1,1)
@@ -600,6 +599,119 @@ Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                         getgenv().Fact = false
 end)
 
+
+                SettingUI.Name = "SettingUI"
+                SettingUI.Parent = Main
+                SettingUI.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                SettingUI.Position = UDim2.new(0.5,0,2,0)
+                SettingUI.Size = UDim2.new(0, 353, 0, 150)
+                SettingUI.ZIndex = 9
+                SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
+
+                    local toggleElement = Instance.new("TextButton")                    
+                    local toggleDisabled = Instance.new("ImageLabel")
+                    local toggleEnabled = Instance.new("ImageLabel")
+                    local togName = Instance.new("TextLabel")                  
+                    local Sample = Instance.new("ImageLabel")
+               
+                    toggleElement.Name = "toggleElement"
+                    toggleElement.Parent = SettingUI
+                    toggleElement.BackgroundColor3 = themeList.ElementColor
+                    toggleElement.ClipsDescendants = true
+                    toggleElement.Size = UDim2.new(0, 352, 0, 33)
+                    toggleElement.AutoButtonColor = false
+                    toggleElement.Font = Enum.Font.SourceSans
+                    toggleElement.Text = ""
+                    toggleElement.TextColor3 = Color3.fromRGB(0, 0, 0)
+                    toggleElement.TextSize = 14.000                    
+
+                    toggleDisabled.Name = "toggleDisabled"
+                    toggleDisabled.Parent = toggleElement
+                    toggleDisabled.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    toggleDisabled.BackgroundTransparency = 1.000
+                    toggleDisabled.Position = UDim2.new(0.0199999996, 0, 0.180000007, 0)
+                    toggleDisabled.Size = UDim2.new(0, 21, 0, 21)
+                    toggleDisabled.Image = "rbxassetid://3926309567"
+                    toggleDisabled.ImageColor3 = themeList.SchemeColor
+                    toggleDisabled.ImageRectOffset = Vector2.new(628, 420)
+                    toggleDisabled.ImageRectSize = Vector2.new(48, 48)
+
+                    toggleEnabled.Name = "toggleEnabled"
+                    toggleEnabled.Parent = toggleElement
+                    toggleEnabled.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    toggleEnabled.BackgroundTransparency = 1.000
+                    toggleEnabled.Position = UDim2.new(0.0199999996, 0, 0.180000007, 0)
+                    toggleEnabled.Size = UDim2.new(0, 21, 0, 21)
+                    toggleEnabled.Image = "rbxassetid://3926309567"
+                    toggleEnabled.ImageColor3 = themeList.SchemeColor
+                    toggleEnabled.ImageRectOffset = Vector2.new(784, 420)
+                    toggleEnabled.ImageRectSize = Vector2.new(48, 48)
+                    toggleEnabled.ImageTransparency = 1.000
+
+                    togName.Name = "togName"
+                    togName.Parent = toggleElement
+                    togName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    togName.BackgroundTransparency = 1.000
+                    togName.Position = UDim2.new(0.096704483, 0, 0.272727281, 0)
+                    togName.Size = UDim2.new(0, 288, 0, 14)
+                    togName.Font = Enum.Font.GothamSemibold
+                    togName.Text = "Anonymous Mode"
+                    togName.RichText = true
+                    togName.TextColor3 = themeList.TextColor
+                    togName.TextSize = 14.000
+                    togName.TextXAlignment = Enum.TextXAlignment.Left
+                    
+                    Sample.Name = "Sample"
+                    Sample.Parent = toggleElement
+                    Sample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    Sample.BackgroundTransparency = 1.000
+                    Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
+                    Sample.ImageColor3 = themeList.SchemeColor
+                    Sample.ImageTransparency = 0.600
+
+local anony = toggleElement
+local Enable = toggleEnabled
+
+anony.MouseButton1Click:Connect(function()
+if anonymous then
+getgenv().anonymous = false
+writefile("/romhub/UiSetting", "{Anonymous = false}") 
+User.Text = user
+UserImage.Image = pfp
+time.TextTransparency = 0
+Enable.ImageTransparency = 1
+
+else
+getgenv().anonymous = true
+writefile("/romhub/UiSetting", "{Anonymous = true}") 
+User.Text = "Anonymous"
+time.TextTransparency = 1
+UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
+
+Enable.ImageTransparency = 0             
+end
+end)                    
+ 
+if readfile("/romhub/UiSetting") == "{Anonymous = false}" then
+getgenv().anonymous = false
+Enable.ImageTransparency = 1
+User.Text = user
+time.TextTransparency = 0
+UserImage.Image = pfp
+else
+if readfile("/romhub/UiSetting") == "{Anonymous = true}" then
+getgenv().anonymous = true
+Enable.ImageTransparency = 0
+User.Text = "Anonymous"
+time.TextTransparency = 1
+UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
+else
+User.Text = user
+time.TextTransparency = 0
+UserImage.Image = pfp
+end
+end
+                     
     coroutine.wrap(function()
         while wait() do
             Main.BackgroundColor3 = themeList.Background
