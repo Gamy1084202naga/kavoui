@@ -229,6 +229,7 @@ function Kavo.CreateLib(kavName, themeList)
     local User = Instance.new("TextLabel")    
     local time = Instance.new("TextLabel")
     local close = Instance.new("ImageButton")
+    local Setting = Instance.new("ImageButton")    
     local Fps = Instance.new("TextLabel")    
     local Ping = Instance.new("TextLabel")    
     local MainSide = Instance.new("Frame")
@@ -413,6 +414,27 @@ function Kavo.CreateLib(kavName, themeList)
         wait(1)
         getgenv().Executed = false
         ScreenGui:Destroy()
+    end)
+
+    Setting.Name = "Setting"
+    Setting.Parent = MainHeader
+    Setting.BackgroundTransparency = 1.000
+    Setting.Position = UDim2.new(0.909999988, 0, 0.137999997, 0)
+    Setting.Size = UDim2.new(0, 21, 0, 21)
+    Setting.ZIndex = 2
+    Setting.Image = "rbxassetid://13198060514"  
+    Setting.ImageColor3 = Color3.fromRGB(255,255,255)
+    Setting.MouseButton1Click:Connect(function()
+        if NOSetting then
+
+                         else
+                       getgenv().NOSetting = true
+                        Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+                        wait(12)
+          Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
+         end         
     end)
 
     Fps.Name = "Fps"
