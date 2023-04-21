@@ -418,7 +418,7 @@ function Kavo.CreateLib(kavName, themeList)
 
     Setting.Name = "Setting"
     Setting.Parent = MainHeader
-    Setting.BackgroundTransparency = 0
+    Setting.BackgroundTransparency = 1
     Setting.Position = UDim2.new(0.909999988, 0, 0.137999997, 0)
     Setting.Size = UDim2.new(0, 21, 0, 21)
     Setting.ZIndex = 2
