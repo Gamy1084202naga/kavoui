@@ -142,17 +142,17 @@ local SettingsT = {
 
 }
 
-if isfolder("/romhub") then
-   if isfile("/romhub/UiSetting", "") then
+if isfolder("/ROMHUB") then
+   if isfile("/ROMHUB/UiSetting", "") then
    
 else
-   writefile("/romhub/UiSetting", "") 
+   writefile("/ROMHUB/UiSetting", "") 
    
     
 end
 else
-  makefolder("romhub")
-  writefile("/romhub/UiSetting", "")   
+  makefolder("ROMHUB")
+  writefile("/ROMHUB/UiSetting", "")   
 end
 
 
@@ -675,7 +675,7 @@ local Enable = toggleEnabled
 anony.MouseButton1Click:Connect(function()
 if anonymous then
 getgenv().anonymous = false
-writefile("/romhub/UiSetting", "{Anonymous = false}") 
+writefile("/ROMHUB/UiSetting", "{Anonymous = false}") 
 User.Text = user
 UserImage.Image = pfp
 time.TextTransparency = 0
@@ -683,7 +683,7 @@ Enable.ImageTransparency = 1
 
 else
 getgenv().anonymous = true
-writefile("/romhub/UiSetting", "{Anonymous = true}") 
+writefile("/ROMHUB/UiSetting", "{Anonymous = true}") 
 User.Text = "Anonymous"
 time.TextTransparency = 1
 UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
@@ -692,14 +692,14 @@ Enable.ImageTransparency = 0
 end
 end)                    
  
-if readfile("/romhub/UiSetting") == "{Anonymous = false}" then
+if readfile("/ROMHUB/UiSetting") == "{Anonymous = false}" then
 getgenv().anonymous = false
 Enable.ImageTransparency = 1
 User.Text = user
 time.TextTransparency = 0
 UserImage.Image = pfp
 else
-if readfile("/romhub/UiSetting") == "{Anonymous = true}" then
+if readfile("/ROMHUB/UiSetting") == "{Anonymous = true}" then
 getgenv().anonymous = true
 Enable.ImageTransparency = 0
 User.Text = "Anonymous"
