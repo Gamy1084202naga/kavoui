@@ -277,7 +277,6 @@ function Kavo.CreateLib(kavName, themeList)
     MainCorner.Name = "MainCorner"
     MainCorner.Parent = Main
 
-
     Background.Name = "Background"
     Background.Parent = Main
     Background.BackgroundColor3 = Color3.fromRGB(0,0,0)
@@ -291,6 +290,8 @@ function Kavo.CreateLib(kavName, themeList)
     BackgroundCorner.CornerRadius = UDim.new(0, 4)
     BackgroundCorner.Name = "Corner"
     BackgroundCorner.Parent = Background
+
+
 
     MainHeader.Name = "MainHeader"
     MainHeader.Parent = Main
@@ -364,12 +365,11 @@ function Kavo.CreateLib(kavName, themeList)
     end
        
 spawn(function()
-        while true do wait()
-               pcall(function()
+        while task.wait() do
+            pcall(function()
                 UpdateTime()
             end)
-        
-	end
+        end
     end)
   
     User.Name = "User"
@@ -406,17 +406,10 @@ spawn(function()
     time.Text = "N/A"   
 
    spawn(function()
-	while true do wait()
-	
+	while wait() do
 	time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
-	
 	end
 	end)
-	
-
-      time = true
-      Time = true
-	
     
     close.Name = "close"
     close.Parent = MainHeader
@@ -429,7 +422,6 @@ spawn(function()
     close.ImageRectSize = Vector2.new(24, 24)
     close.MouseButton1Click:Connect(function()
         Utility:TweenObject(FactName, {TextTransparency = 1}, 0.1)
-	
         game.TweenService:Create(close, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
             ImageTransparency = 1
         }):Play()
@@ -3001,7 +2993,7 @@ end
             	label.BorderSizePixel = 0
 				label.ClipsDescendants = true
             	label.Text = title
-           		label.Size = UDim2.new(0, 352, 0, 33)
+           	 label.Size = UDim2.new(0, 352, 0, 33)
 	            label.Font = Enum.Font.Gotham
 	            label.Text = "  "..title
 	            label.RichText = true
@@ -3042,5 +3034,4 @@ end
     return Tabs
 end
 return Kavo
-
 
