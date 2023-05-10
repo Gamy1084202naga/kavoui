@@ -217,6 +217,8 @@ function Kavo.CreateLib(kavName, themeList)
     local ScreenGui = Instance.new("ScreenGui")
     local Main = Instance.new("Frame")
     local MainCorner = Instance.new("UICorner")
+    local Background = Instance.new("ImageLabel")
+    local BackgroundCorner = Instance.new("UICorner")
     local MainHeader = Instance.new("Frame")
     local headerCover = Instance.new("UICorner")
     local coverup = Instance.new("Frame")
@@ -274,6 +276,20 @@ function Kavo.CreateLib(kavName, themeList)
     MainCorner.CornerRadius = UDim.new(0, 4)
     MainCorner.Name = "MainCorner"
     MainCorner.Parent = Main
+
+
+    Background.Name = "Background"
+    Background.Parent = Main
+    Background.BackgroundColor3 = themeList.Background
+    Background.ClipsDescendants = true
+    Background.Position = UDim2.new(0.336503863, 0, 0.275485456, 0)
+    Background.Size = UDim2.new(0, 525, 0, 318)
+    Background.Image = "rbxassetid://13111948603"
+    Background.ImageTransparency = 0
+    
+    BackgroundCorner.CornerRadius = UDim.new(0, 4)
+    BackgroundCorner.Name = "Corner"
+    BackgroundCorner.Parent = Background
 
     MainHeader.Name = "MainHeader"
     MainHeader.Parent = Main
