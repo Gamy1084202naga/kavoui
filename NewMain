@@ -407,7 +407,7 @@ spawn(function()
     time.Text = "N/A"   
 
    spawn(function()
-	while wait() do 
+	while true do wait()
 	if time then
 	time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
 	end
