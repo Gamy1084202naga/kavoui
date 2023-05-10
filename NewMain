@@ -280,12 +280,13 @@ function Kavo.CreateLib(kavName, themeList)
 
     Background.Name = "Background"
     Background.Parent = Main
-    Background.BackgroundColor3 = themeList.Background
+    Background.BackgroundColor3 = Color3.fromRGB(0,0,0)
+    Background.BackgroundTransparency = 1
     Background.ClipsDescendants = true
-    Background.Position = UDim2.new(0.336503863, 0, 0.275485456, 0)
+    Background.Position = UDim2.new(0, 0, 0, 0)
     Background.Size = UDim2.new(0, 525, 0, 318)
     Background.Image = "rbxassetid://13111948603"
-    Background.ImageTransparency = 0
+    Background.ImageTransparency = 0.5
     
     BackgroundCorner.CornerRadius = UDim.new(0, 4)
     BackgroundCorner.Name = "Corner"
