@@ -364,7 +364,7 @@ function Kavo.CreateLib(kavName, themeList)
     end
        
 spawn(function()
-        while true do
+        while true do wait()
          if Time then
             pcall(function()
                 UpdateTime()
