@@ -286,7 +286,7 @@ function Kavo.CreateLib(kavName, themeList)
     Background.Position = UDim2.new(0, 0, 0, 0)
     Background.Size = UDim2.new(0, 525, 0, 318)
     Background.Image = "rbxassetid://13111948603"
-    Background.ImageTransparency = 0.4
+    Background.ImageTransparency = 0.6
     
     BackgroundCorner.CornerRadius = UDim.new(0, 4)
     BackgroundCorner.Name = "Corner"
@@ -365,11 +365,10 @@ function Kavo.CreateLib(kavName, themeList)
        
 spawn(function()
         while true do wait()
-         if Time then
-            pcall(function()
+               pcall(function()
                 UpdateTime()
             end)
-        end
+        
 	end
     end)
   
@@ -408,9 +407,9 @@ spawn(function()
 
    spawn(function()
 	while true do wait()
-	if time then
+	
 	time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
-	end
+	
 	end
 	end)
 	
@@ -430,8 +429,6 @@ spawn(function()
     close.ImageRectSize = Vector2.new(24, 24)
     close.MouseButton1Click:Connect(function()
         Utility:TweenObject(FactName, {TextTransparency = 1}, 0.1)
-	time = false
-      Time = false
 	
         game.TweenService:Create(close, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
             ImageTransparency = 1
