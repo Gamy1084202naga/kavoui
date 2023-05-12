@@ -141,6 +141,34 @@ local oldTheme = ""
 local SettingsT = { 
 
 }
+_G.SettingSave = {
+   Anonymous = false;
+   HideText = false;
+}   
+
+
+function loadsetting()
+
+local HttpService= game:GetService("HttpService")
+if (readfile and isfile and isfile("/ROMHUB/UiSetting")) then
+_G.SettingSave = HttpService:JSONDecode(readfile("/romhub/UiSetting"));
+
+end
+end
+
+
+function saveSettings()
+local json;
+local HttpService= game:GetService("HttpService");
+if (writefile) then
+json = HttpService:JSONEncode(_G.SettingSave);
+writefile("/ROMHUB/UiSetting", json);
+else
+
+ end
+end
+
+
 
 if isfolder("/ROMHUB") then
    if isfile("/ROMHUB/UiSetting", "") then
@@ -635,6 +663,7 @@ end)
                     toggleElement.Name = "toggleElement"
                     toggleElement.Parent = SettingUI
                     toggleElement.BackgroundColor3 = themeList.ElementColor
+                    toggleElement.Position = UDim2.new(0,0,0,0)
                     toggleElement.ClipsDescendants = true
                     toggleElement.Size = UDim2.new(0, 352, 0, 33)
                     toggleElement.AutoButtonColor = false
@@ -678,30 +707,30 @@ end)
                     togName.TextColor3 = themeList.TextColor
                     togName.TextSize = 14.000
                     togName.TextXAlignment = Enum.TextXAlignment.Left
-                    
-                    Sample.Name = "Sample"
-                    Sample.Parent = toggleElement
-                    Sample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                    Sample.BackgroundTransparency = 1.000
-                    Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
-                    Sample.ImageColor3 = themeList.SchemeColor
-                    Sample.ImageTransparency = 0.600
+                                       
 
 local anony = toggleElement
 local Enable = toggleEnabled
-
+local TextName = togName
 anony.MouseButton1Click:Connect(function()
+
 if anonymous then
+_G.SettingSave.Anonymous = false
+saveSettings()
 getgenv().anonymous = false
-writefile("/ROMHUB/UiSetting", "{Anonymous = false}") 
+title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
 User.Text = user
 UserImage.Image = pfp
 time.TextTransparency = 0
 Enable.ImageTransparency = 1
 
 else
+_G.SettingSave.Anonymous = true
+saveSettings()
 getgenv().anonymous = true
-writefile("/ROMHUB/UiSetting", "{Anonymous = true}") 
+title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
+UserImage.ImageTransparency = 0
+User.TextTransparency = 0
 User.Text = "Anonymous"
 time.TextTransparency = 1
 UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
@@ -710,25 +739,118 @@ Enable.ImageTransparency = 0
 end
 end)                    
  
-if readfile("/ROMHUB/UiSetting") == "{Anonymous = false}" then
-getgenv().anonymous = false
-Enable.ImageTransparency = 1
-User.Text = user
-time.TextTransparency = 0
-UserImage.Image = pfp
+ local HideButton = Instance.new("TextButton")                    
+                    local HideDisabled = Instance.new("ImageLabel")
+                    local HideEnabled = Instance.new("ImageLabel")
+                    local HideText = Instance.new("TextLabel")                  
+                    
+                    HideButton.Name = "HideButton"
+                    HideButton.Parent = SettingUI
+                    HideButton.BackgroundColor3 = themeList.ElementColor
+                    HideButton.Position = UDim2.new(0,0,0.22,0)
+                    HideButton.ClipsDescendants = true
+                    HideButton.Size = UDim2.new(0, 352, 0, 33)
+                    HideButton.AutoButtonColor = false
+                    HideButton.Font = Enum.Font.SourceSans
+                    HideButton.Text = ""
+                    HideButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+                    HideButton.TextSize = 14.000                    
+
+                    HideDisabled.Name = "HideDisabled"
+                    HideDisabled.Parent = HideButton
+                    HideDisabled.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    HideDisabled.BackgroundTransparency = 1.000
+                    HideDisabled.Position = UDim2.new(0.0199999996, 0, 0.180000007, 0)
+                    HideDisabled.Size = UDim2.new(0, 21, 0, 21)
+                    HideDisabled.Image = "rbxassetid://3926309567"
+                    HideDisabled.ImageColor3 = themeList.SchemeColor
+                    HideDisabled.ImageRectOffset = Vector2.new(628, 420)
+                    HideDisabled.ImageRectSize = Vector2.new(48, 48)
+
+                    HideEnabled.Name = "HideEnabled"
+                    HideEnabled.Parent = HideButton
+                    HideEnabled.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    HideEnabled.BackgroundTransparency = 1.000
+                    HideEnabled.Position = UDim2.new(0.0199999996, 0, 0.180000007, 0)
+                    HideEnabled.Size = UDim2.new(0, 21, 0, 21)
+                    HideEnabled.Image = "rbxassetid://3926309567"
+                    HideEnabled.ImageColor3 = themeList.SchemeColor
+                    HideEnabled.ImageRectOffset = Vector2.new(784, 420)
+                    HideEnabled.ImageRectSize = Vector2.new(48, 48)
+                    HideEnabled.ImageTransparency = 1.000
+
+                    HideText.Name = "HideText"
+                    HideText.Parent = HideButton
+                    HideText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    HideText.BackgroundTransparency = 1.000
+                    HideText.Position = UDim2.new(0.096704483, 0, 0.272727281, 0)
+                    HideText.Size = UDim2.new(0, 288, 0, 14)
+                    HideText.Font = Enum.Font.GothamSemibold
+                    HideText.Text = "Hide All Annoying Text"
+                    HideText.RichText = true
+                    HideText.TextColor3 = themeList.TextColor
+                    HideText.TextSize = 14.000
+                    HideText.TextXAlignment = Enum.TextXAlignment.Left
+                    
+                    
+
+
+local Hid = HideButton
+local HidEnable = HideEnabled
+local HidText = HideText
+Hid.MouseButton1Click:Connect(function()
+if Hide then
+_G.SettingSave.HideText = false
+saveSettings()
+getgenv().Hide = false
+title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
+Time.TextTransparency = 0
+Fps.TextTransparency = 0
+Ping.TextTransparency = 0
+HidEnable.ImageTransparency = 1
+
 else
-if readfile("/ROMHUB/UiSetting") == "{Anonymous = true}" then
+_G.SettingSave.HideText = true
+saveSettings()
+getgenv().Hide = true
+title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
+Time.TextTransparency = 1
+Fps.TextTransparency = 1
+Ping.TextTransparency = 1
+HidEnable.ImageTransparency = 0             
+end
+end)
+
+loadsetting()
+
+if _G.SettingSave.Anonymous then
 getgenv().anonymous = true
 Enable.ImageTransparency = 0
 User.Text = "Anonymous"
 time.TextTransparency = 1
-UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
+UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png"
 else
+getgenv().anonymous = false
 User.Text = user
-time.TextTransparency = 0
 UserImage.Image = pfp
+time.TextTransparency = 0
+Enable.ImageTransparency = 1 	
 end
-end
+
+if _G.SettingSave.HideText then
+getgenv().Hide = true
+Time.TextTransparency = 1
+Fps.TextTransparency = 1
+Ping.TextTransparency = 1
+HidEnable.ImageTransparency = 0
+else
+getgenv().Hide = false
+Time.TextTransparency = 0
+Fps.TextTransparency = 0
+Ping.TextTransparency = 0
+HidEnable.ImageTransparency = 1
+end                     
+                     
                      
     coroutine.wrap(function()
         while wait() do
