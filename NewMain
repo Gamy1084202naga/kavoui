@@ -539,14 +539,13 @@ function Kavo.CreateLib(kavName, themeList)
         Time.Text = ("Timer "..Hour.." Hr : "..Minute.." Min : "..Second.." Sec")
     end
        
-spawn(function()
         while Time do wait()
-            pcall(function()
+            
                 UpdateTime()
-            end)
+            
         end
-    end)
-  
+    
+
     User.Name = "User"
     User.Parent = MainHeader
     User.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
