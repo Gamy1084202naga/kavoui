@@ -579,11 +579,11 @@ function Kavo.CreateLib(kavName, themeList)
 
     time.Text = "N/A"   
 
-   spawn(function()
+   
 	while time do wait()
 	time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
 	end
-	end)
+	
 
 Time = true 
 time = true
