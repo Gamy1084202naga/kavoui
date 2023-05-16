@@ -415,12 +415,13 @@ function Kavo.CreateLib(kavName, themeList)
         Time.Text = ("Timer "..Hour.." Hr : "..Minute.." Min : "..Second.." Sec")
     end
        
+        if Time then
         while Time do wait()
             
                 UpdateTime()
             
         end
-    
+    end
 
     User.Name = "User"
     User.Parent = MainHeader
@@ -455,11 +456,11 @@ function Kavo.CreateLib(kavName, themeList)
 
     time.Text = "N/A"   
 
-   
+   if time then
 	while time do wait()
 	time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
 	end
-	
+	end
 
 Time = true 
 time = true
