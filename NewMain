@@ -835,8 +835,8 @@ end)
 
 maxvalue = 120
                 minvalue = 70
-                startVal = 70
-                
+                startVal = _G.SettingSave.Fov
+
                 local Speed = Instance.new("TextButton")
                 local UICorner = Instance.new("UICorner")
                 local SpeedName = Instance.new("TextLabel")              
@@ -972,14 +972,19 @@ maxvalue = 120
                         }):Play()
                         Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue)) or 1
                         pcall(function()
-                             game.Workspace.Camera.FieldOfView = Value
+                            _G.SettingSave.Fov = Value
+saveSettings()
+
+ game.Workspace.Camera.FieldOfView = Value
                         end)
                         SpeedDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - SpeedDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
                         moveconnection = mouse.Move:Connect(function()
                             val.Text = Value
                             Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue))
                             pcall(function()
-                                 game.Workspace.Camera.FieldOfView = Value
+                                 _G.SettingSave.Fov = Value
+saveSettings()
+ game.Workspace.Camera.FieldOfView = Value
                             end)
                             SpeedDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - SpeedDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
                         end)
@@ -987,7 +992,9 @@ maxvalue = 120
                             if Mouse.UserInputType == Enum.UserInputType.MouseButton1 or Mouse.UserInputType == Enum.UserInputType.Touch then
                                 Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue))
                                 pcall(function()
-                                     game.Workspace.Camera.FieldOfView = Value
+                           _G.SettingSave.Fov = Value
+saveSettings()
+ game.Workspace.Camera.FieldOfView = Value
                                 end)
                                 val.Text = Value
                                 game.TweenService:Create(val, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
@@ -1013,6 +1020,8 @@ maxvalue = 120
 
 
 loadsetting()
+
+game.Workspace.Camera.FieldOfView = _G.SettingSave.Fov
 
 if _G.SettingSave.Anonymous then
 getgenv().anonymous = true
