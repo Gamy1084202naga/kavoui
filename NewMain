@@ -144,6 +144,7 @@ local SettingsT = {
 _G.SettingSave = {
    Anonymous = false;
    HideText = false;
+   Fov = "70";
 }   
 
 
