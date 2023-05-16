@@ -659,7 +659,7 @@ end)
                 SettingUI.Parent = Main
                 SettingUI.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
                 SettingUI.Position = UDim2.new(0.5,0,2,0)
-                SettingUI.Size = UDim2.new(0, 363, 0, 150)
+                SettingUI.Size = UDim2.new(0, 353, 0, 160)
                 SettingUI.ZIndex = 9
                 SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
 
@@ -840,7 +840,7 @@ maxvalue = 120
                 local UICorner = Instance.new("UICorner")
                 local SpeedName = Instance.new("TextLabel")              
                 local SpeedBtn = Instance.new("TextButton")
-                local UICorner_2 = Instance.new("UICorner")
+                
                 local UIListLayout = Instance.new("UIListLayout")
                 local SpeedDrag = Instance.new("Frame")
                 local UICorner_3 = Instance.new("UICorner")
@@ -859,9 +859,7 @@ maxvalue = 120
                 Speed.TextColor3 = Color3.fromRGB(0, 0, 0)
                 Speed.TextSize = 14.000
 
-                UICorner.CornerRadius = UDim.new(0, 4)
-                UICorner.Parent = Speed
-
+                
                 SpeedName.Name = "SpeedName"
                 SpeedName.Parent = Speed
                 SpeedName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -888,8 +886,7 @@ maxvalue = 120
                 SpeedBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
                 SpeedBtn.TextSize = 14.000
 
-                UICorner_2.Parent = SpeedBtn
-
+                
                 UIListLayout.Parent = SpeedBtn
                 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
                 UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
