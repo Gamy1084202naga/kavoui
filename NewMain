@@ -408,19 +408,20 @@ function Kavo.CreateLib(kavName, themeList)
     Time.TextSize = 13.000
        
     function UpdateTime()
+while Time do wait()
         local GameTime = math.floor(workspace.DistributedGameTime+0.5)
         local Hour = math.floor(GameTime/(60^2))%24
         local Minute = math.floor(GameTime/(60^1))%60
         local Second = math.floor(GameTime/(60^0))%60
         Time.Text = ("Timer "..Hour.." Hr : "..Minute.." Min : "..Second.." Sec")
     end
-       
+   end
         if Time then
-        while Time do wait()
+        
             
                 UpdateTime()
             
-        end
+       
     end
 
     User.Name = "User"
@@ -456,10 +457,14 @@ function Kavo.CreateLib(kavName, themeList)
 
     time.Text = "N/A"   
 
+function updatetime()
+while time do wait()
+time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
+
+end
+end
    if time then
-	while time do wait()
-	time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
-	end
+	updatetime()
 	end
 
 Time = true 
