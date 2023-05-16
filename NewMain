@@ -370,7 +370,7 @@ function Kavo.CreateLib(kavName, themeList)
     local Main = Instance.new("Frame")
     local MainCorner = Instance.new("UICorner")
     local DropShadowHolder = Instance.new("Frame")
-    local DropShadow = Instance.new("ImageLabel"
+    local DropShadow = Instance.new("ImageLabel")
     local Background = Instance.new("ImageLabel")
     local BackgroundCorner = Instance.new("UICorner")
     local MainHeader = Instance.new("Frame")
