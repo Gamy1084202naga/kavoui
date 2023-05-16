@@ -659,7 +659,7 @@ end)
                 SettingUI.Parent = Main
                 SettingUI.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
                 SettingUI.Position = UDim2.new(0.5,0,2,0)
-                SettingUI.Size = UDim2.new(0, 353, 0, 150)
+                SettingUI.Size = UDim2.new(0, 363, 0, 150)
                 SettingUI.ZIndex = 9
                 SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
 
