@@ -435,7 +435,7 @@ function Kavo.CreateLib(kavName, themeList)
     DropShadowHolder.Parent = Main
     DropShadowHolder.BackgroundTransparency = 1.000
     DropShadowHolder.BorderSizePixel = 0
-    DropShadowHolder.Size = UDim2.new(1, 0, 1, 0)
+    DropShadowHolder.Size = UDim2.new(10, 0, 10, 0)
     DropShadowHolder.ZIndex = 0
 
     DropShadow.Name = "DropShadow"
@@ -540,7 +540,7 @@ function Kavo.CreateLib(kavName, themeList)
     end
        
 spawn(function()
-        while task.wait() do
+        while Time do
             pcall(function()
                 UpdateTime()
             end)
@@ -581,10 +581,13 @@ spawn(function()
     time.Text = "N/A"   
 
    spawn(function()
-	while wait() do
+	while time do wait()
 	time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
 	end
 	end)
+
+Time = true 
+time = true
     
     close.Name = "close"
     close.Parent = MainHeader
@@ -596,6 +599,8 @@ spawn(function()
     close.ImageRectOffset = Vector2.new(284, 4)
     close.ImageRectSize = Vector2.new(24, 24)
     close.MouseButton1Click:Connect(function()
+time = false
+Time = false
         Utility:TweenObject(FactName, {TextTransparency = 1}, 0.1)
         game.TweenService:Create(close, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
             ImageTransparency = 1
