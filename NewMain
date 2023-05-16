@@ -512,17 +512,17 @@ Ping.Name = "Ping"
     Ping.TextSize = 13.000
     Ping.TextXAlignment = Enum.TextXAlignment.Left
 
-local script = Instance.new('LocalScript', Fps)
+
 local RunService = game:GetService("RunService")
 RunService.RenderStepped:Connect(function(frame)
-script.Parent.Text = ("FPS: "..math.round(1/frame)) 
+Fps.Text = ("FPS: "..math.round(1/frame)) 
 end)
 
 
-local script = Instance.new('LocalScript', Ping)
+
 local RunService = game:GetService("RunService")
 RunService.RenderStepped:Connect(function(ping) 
-script.Parent.Text = ("Ping: " ..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString(math.round(2/ping))) -- your ping
+Ping.Text = ("Ping: " ..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString(math.round(2/ping))) -- your ping
 end)
 
     MainSide.Name = "MainSide"
