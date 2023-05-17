@@ -484,12 +484,22 @@ FactName.TextTransparency = 1
 local st = Setting         
 st.MouseButton1Click:Connect(function()
 if setting then
+game.TweenService:Create(
+Setting,
+TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+{Rotation = 0}
+):Play()
 Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
 getgenv().setting = false
 
 else
 getgenv().setting = true
+game.TweenService:Create(
+Setting,
+TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+{Rotation = 360}
+):Play()
                         Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
 end
