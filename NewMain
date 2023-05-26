@@ -349,7 +349,7 @@ function Kavo.CreateLib(kavName, themeList)
     UserImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     UserImage.BackgroundTransparency = 1.000
     UserImage.Position = UDim2.new(0.009, 0, 0, 0)
-    UserImage.Size = UDim2.new(0, 35, 0, 35)      
+    UserImage.Size = UDim2.new(0, 25, 0, 25)      
 	
 	
     title.Name = "title"
