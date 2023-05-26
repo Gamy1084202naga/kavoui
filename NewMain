@@ -254,6 +254,7 @@ function Kavo.CreateLib(kavName, themeList)
     local headerCover = Instance.new("UICorner")
     local coverup = Instance.new("Frame")
     local UserImage = Instance.new("ImageLabel")
+    local UiCorner = Instance.new("UICorner")
     local title = Instance.new("TextLabel")
     local fact = Instance.new("TextButton")
     local FactName = Instance.new("TextLabel")
@@ -349,8 +350,12 @@ function Kavo.CreateLib(kavName, themeList)
     UserImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     UserImage.BackgroundTransparency = 1.000
     UserImage.Position = UDim2.new(0.009, 0, 0, 0)
-    UserImage.Size = UDim2.new(0, 25, 0, 25)      
+    UserImage.Size = UDim2.new(0, 37, 0, 29)      
 	
+    UiCorner.CornerRadius = UDim.new(0, 100)
+    UiCorner.Name = "Corner"
+    UiCorner.Parent = UserImage
+
 	
     title.Name = "title"
     title.Parent = MainHeader
@@ -1063,6 +1068,12 @@ Ping.TextTransparency = 0
 HidEnable.ImageTransparency = 1
 end                     
     
+if _G.SettingSave.HideText and _G.SettingSave.Anonymous then
+
+
+title.Position = UDim2.new(0.285428565, 0, 0.455827592, 0)
+
+end
 
 DropShadowHolder.Name = "DropShadowHolder"
     DropShadowHolder.Parent = Main
