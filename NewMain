@@ -140,7 +140,7 @@ local themeStyles = {
         Background = Color3.fromRGB(0, 0, 0),
         Header = Color3.fromRGB(0, 0, 0),
         TextColor = Color3.fromRGB(255,255,255),
-        ElementColor = Color3.fromRGB(0, 0, 0)
+        ElementColor = Color3.fromRGB(20, 20, 20)
     }
 }
 local oldTheme = ""
@@ -696,7 +696,7 @@ end)
                
                     toggleElement.Name = "toggleElement"
                     toggleElement.Parent = SettingUI
-                    toggleElement.BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 + 5, themeList.ElementColor.g * 255 + 5, themeList.ElementColor.b * 255  + 5)
+                    toggleElement.BackgroundColor3 = themeList.ElementColor
                     toggleElement.Position = UDim2.new(0,0,0,0)
                     toggleElement.ClipsDescendants = true
                     toggleElement.Size = UDim2.new(0, 352, 0, 33)
@@ -780,7 +780,7 @@ end)
                     
                     HideButton.Name = "HideButton"
                     HideButton.Parent = SettingUI
-                    HideButton.BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 + 5, themeList.ElementColor.g * 255 + 5, themeList.ElementColor.b * 255  + 5)
+                    HideButton.BackgroundColor3 = themeList.ElementColor
                     HideButton.Position = UDim2.new(0,0,0.22,0)
                     HideButton.ClipsDescendants = true
                     HideButton.Size = UDim2.new(0, 352, 0, 33)
