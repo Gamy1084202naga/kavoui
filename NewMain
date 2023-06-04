@@ -317,7 +317,7 @@ function Kavo.CreateLib(kavName, themeList)
     Background.BackgroundColor3 = Color3.fromRGB(0,0,0)
     Background.BackgroundTransparency = 1
     Background.ClipsDescendants = true
-    Background.Position = UDim2.new(0, 0, 0, 0)
+    Background.Position = UDim2.new(0, 99, 0, 29)
     Background.Size = UDim2.new(0, 525, 0, 318)
     Background.Image = "rbxassetid://13646600589"
     Background.ImageTransparency = 0.6
