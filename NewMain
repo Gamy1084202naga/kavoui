@@ -129,11 +129,11 @@ local themeStyles = {
         ElementColor = Color3.fromRGB(22, 29, 31)
     },
     Event = {
-        SchemeColor = Color3.fromRGB(0,0,0),
+        SchemeColor = Color3.fromRGB(0, 162, 198),
         Background = Color3.fromRGB(0, 0, 0),
         Header = Color3.fromRGB(0, 0, 0),
         TextColor = Color3.fromRGB(255,255,255),
-        ElementColor = Color3.fromRGB(20, 20, 2)
+        ElementColor = Color3.fromRGB(0, 0, 0)
     }
    
 }
@@ -218,8 +218,8 @@ function Kavo.CreateLib(kavName, themeList)
         themeList = themeStyles.Synapse
     elseif themeList == "Serpent" then
         themeList = themeStyles.Serpent
-    elseif themeList == "Thunder" then
-        themeList = themeStyles.Thunder
+    elseif themeList == "Event" then
+        themeList = themeStyles.Event
   
     else
         if themeList.SchemeColor == nil then
