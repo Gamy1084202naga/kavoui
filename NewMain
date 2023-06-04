@@ -128,7 +128,7 @@ local themeStyles = {
         TextColor = Color3.fromRGB(255,255,255),
         ElementColor = Color3.fromRGB(22, 29, 31)
     },
-    Thunder = {
+    EventB = {
         SchemeColor = Color3.fromRGB(0, 162, 198),
         Background = Color3.fromRGB(0, 0, 0),
         Header = Color3.fromRGB(0, 0, 0),
@@ -676,7 +676,7 @@ end)
 
                 SettingUI.Name = "SettingUI"
                 SettingUI.Parent = Main
-                SettingUI.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                SettingUI.BackgroundColor3 = Color3.fromRGB(20,20,20)
                 SettingUI.Position = UDim2.new(0.5,0,2,0)
                 SettingUI.Size = UDim2.new(0, 353, 0, 160)
                 SettingUI.ZIndex = 9
