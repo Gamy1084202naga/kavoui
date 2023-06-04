@@ -319,7 +319,7 @@ function Kavo.CreateLib(kavName, themeList)
     Background.ClipsDescendants = true
     Background.Position = UDim2.new(0, 0, 0, 0)
     Background.Size = UDim2.new(0, 525, 0, 318)
-    Background.Image = "rbxassetid://13111948603"
+    Background.Image = "rbxassetid://13646600589"
     Background.ImageTransparency = 0.6
     
     BackgroundCorner.CornerRadius = UDim.new(0, 4)
