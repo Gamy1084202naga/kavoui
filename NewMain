@@ -165,7 +165,7 @@ function loadsetting()
 
 local HttpService= game:GetService("HttpService")
 if (readfile and isfile and isfile("/ROMHUB/UiSetting")) then
-_G.SettingSave = HttpService:JSONDecode(readfile("/romhub/UiSetting"));
+_G.SettingSave = HttpService:JSONDecode(readfile("/ROMHUB/UiSetting"));
 
 end
 end
@@ -243,6 +243,8 @@ function Kavo.CreateLib(kavName, themeList)
     local ScreenGui = Instance.new("ScreenGui")
     local Main = Instance.new("Frame")
     local MainCorner = Instance.new("UICorner")
+    local DropShadowHolder = Instance.new("Frame")
+    local DropShadow = Instance.new("ImageLabel")
     local Background = Instance.new("ImageLabel")
     local BackgroundCorner = Instance.new("UICorner")
     local MainHeader = Instance.new("Frame")
@@ -253,6 +255,7 @@ function Kavo.CreateLib(kavName, themeList)
     local title = Instance.new("TextLabel")
     local fact = Instance.new("TextButton")
     local FactName = Instance.new("TextLabel")
+    local Factclose = Instance.new("TextButton")
     local UICorner = Instance.new("UICorner")
     local UICorners = Instance.new("UICorner") 
     local Time = Instance.new("TextLabel")    
@@ -457,7 +460,8 @@ spawn(function()
     close.MouseButton1Click:Connect(function()
 time = false
 Time = false
-
+FactName.TextTransparency = 1
+        
         game.TweenService:Create(close, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
             ImageTransparency = 1
         }):Play()
@@ -629,7 +633,7 @@ Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                 FactName.ZIndex = 9
                 FactName.AnchorPoint = Vector2.new(0.5, 0.5)
                 FactName.Font = Enum.Font.GothamSemibold
-                FactName.Text = "So u just click our name and u know why our hub Name is ROMHUB?? It come from my username that start with rom. And i think it pretty iconic so i use them And the hub is from other script like to end with hub! That the end!"
+                FactName.Text = "So u just click our name and u know why our hub Name is ROMHUB?? It come from my username that start with rom. And i think it pretty iconic so i use them to this time! And the hub is from other script like to end with hub! That the end!"
                 FactName.RichText = true
                 FactName.TextWrapped = true
                 FactName.TextColor3 = themeList.TextColor
@@ -639,15 +643,33 @@ Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                 FactName.TextYAlignment = Enum.TextYAlignment.Top
                 Objects[FactName] = "BackgroundColor3"
 
-while true do
-if getgenv().Executed == false then
-FactName:Destroy
-end
-end
-
 UICorner.CornerRadius = UDim.new(0, 4)
                 UICorner.Parent = FactName
-                
+
+
+
+Factclose.Parent = FactName 
+Factclose.BackgroundColor3 = Color3.fromRGB(255,1,1)
+Factclose.BackgroundTransparency = 1
+Factclose.Position = UDim2.new(0.9, 0, 0.2552890813, 0)
+Factclose.Size = UDim2.new(0, 0, 0, 0)
+Factclose.Text = "CLOSE RN😡"
+Factclose.TextTransparency = 1
+Factclose.TextColor3 = Color3.fromRGB(255, 255, 255)
+Factclose.TextSize = 14.000
+
+UICorners.CornerRadius = UDim.new(0, 10) 
+
+UICorners.Parent = Factclose                
+    
+Factclose.MouseButton1Click:Connect(function()
+Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
+                        wait(0)
+                        getgenv().Fact = false
+end)
+
+
                 SettingUI.Name = "SettingUI"
                 SettingUI.Parent = Main
                 SettingUI.BackgroundColor3 = Color3.fromRGB(20,20,20)
@@ -1043,6 +1065,35 @@ Ping.TextTransparency = 0
 HidEnable.ImageTransparency = 1
 end                     
     
+if _G.SettingSave.HideText and _G.SettingSave.Anonymous then
+
+
+title.Position = UDim2.new(0.285428565, 0, 0.455827592, 0)
+
+end
+
+DropShadowHolder.Name = "DropShadowHolder"
+    DropShadowHolder.Parent = Main
+    DropShadowHolder.BackgroundTransparency = 1.000
+    DropShadowHolder.BorderSizePixel = 0
+    DropShadowHolder.Size = UDim2.new(1, 0, 1, 0)
+    DropShadowHolder.ZIndex = 0
+
+    DropShadow.Name = "DropShadow"
+    DropShadow.Parent = DropShadowHolder
+    DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+    DropShadow.BackgroundTransparency = 1.000
+    DropShadow.BorderSizePixel = 0
+    DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+    DropShadow.Size = UDim2.new(1, 800, 1, 800)
+    DropShadow.ZIndex = 0
+    DropShadow.Image = "rbxassetid://6015897843"
+    DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    DropShadow.ImageTransparency = 0.500
+    DropShadow.ScaleType = Enum.ScaleType.Slice
+    DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+                 
+                     
     coroutine.wrap(function()
         while wait() do
             Main.BackgroundColor3 = themeList.Background
@@ -3348,4 +3399,3 @@ end
     return Tabs
 end
 return Kavo
-
