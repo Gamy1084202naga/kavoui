@@ -139,40 +139,39 @@ local themeStyles = {
 }
 local oldTheme = ""
 
+local SettingsT = { 
+
+}
 _G.SettingSave = {
    Anonymous = false;
    HideText = false;
    Fov = "70";
 }   
 
-if isfile ('ROMHUB/UiSetting') then
-delfile("ROMHUB/UiSetting")
-    end
-
 if isfolder("ROMHUB") == false then
         makefolder("ROMHUB")
     end
-    
-function SaveSettings()
-        local JSON -- is nil
-        local HttpService = game:service('HttpService')
-        if (writefile) then
-        JSON = HttpService:JSONEncode(_G.SettingSave)
-        writefile('ROMHUB/Settings',JSON)
-        else
-            print("Exploit not supported bruv")
-        end
-    end
-    
-function LoadSettings()
+
+function loadsetting()
 
 local HttpService= game:GetService("HttpService")
-if (readfile and isfile and isfile("ROMHUB/Settings")) then
-_G.SettingSave = HttpService:JSONDecode(readfile("ROMHUB/Settings"));
+if (readfile and isfile and isfile("/ROMHUB/Settings")) then
+_G.SettingSave = HttpService:JSONDecode(readfile("/ROMHUB/Settings"));
 
 end
 end
 
+
+function saveSettings()
+local json;
+local HttpService= game:GetService("HttpService");
+if (writefile) then
+json = HttpService:JSONEncode(_G.SettingSave);
+writefile("/ROMHUB/Settings", json);
+else
+
+ end
+end
 local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
 
 function Kavo:ToggleUI()
@@ -234,6 +233,8 @@ function Kavo.CreateLib(kavName, themeList)
     local ScreenGui = Instance.new("ScreenGui")
     local Main = Instance.new("Frame")
     local MainCorner = Instance.new("UICorner")
+    local DropShadowHolder = Instance.new("Frame")
+    local DropShadow = Instance.new("ImageLabel")
     local Background = Instance.new("ImageLabel")
     local BackgroundCorner = Instance.new("UICorner")
     local MainHeader = Instance.new("Frame")
@@ -448,7 +449,7 @@ spawn(function()
     close.MouseButton1Click:Connect(function()
 time = false
 Time = false
-
+        
         game.TweenService:Create(close, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
             ImageTransparency = 1
         }):Play()
@@ -620,7 +621,7 @@ Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                 FactName.ZIndex = 9
                 FactName.AnchorPoint = Vector2.new(0.5, 0.5)
                 FactName.Font = Enum.Font.GothamSemibold
-                FactName.Text = "So u just click our name and u know why our hub Name is ROMHUB?? It come from my username that start with rom. And i think it pretty iconic so i use them And the hub is from other script like to end with hub! That the end!"
+                FactName.Text = "So u just click our name and u know why our hub Name is ROMHUB?? It come from my username that start with rom. And i think it pretty iconic so i use them to this time! And the hub is from other script like to end with hub! That the end!"
                 FactName.RichText = true
                 FactName.TextWrapped = true
                 FactName.TextColor3 = themeList.TextColor
@@ -629,12 +630,6 @@ Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                 FactName.TextXAlignment = Enum.TextXAlignment.Left
                 FactName.TextYAlignment = Enum.TextYAlignment.Top
                 Objects[FactName] = "BackgroundColor3"
-
-while true do
-if getgenv().Executed == false then
-FactName:Destroy()
-end
-end
 
 UICorner.CornerRadius = UDim.new(0, 4)
                 UICorner.Parent = FactName
@@ -709,9 +704,8 @@ anony.MouseButton1Click:Connect(function()
 
 if anonymous then
 _G.SettingSave.Anonymous = false
-SaveSettings()
+saveSettings()
 getgenv().anonymous = false
-title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
 User.Text = user
 UserImage.Image = pfp
 time.TextTransparency = 0
@@ -719,9 +713,8 @@ Enable.ImageTransparency = 1
 
 else
 _G.SettingSave.Anonymous = true
-SaveSettings()
+saveSettings()
 getgenv().anonymous = true
-title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
 UserImage.ImageTransparency = 0
 User.TextTransparency = 0
 User.Text = "Anonymous"
@@ -794,9 +787,8 @@ local HidText = HideText
 Hid.MouseButton1Click:Connect(function()
 if Hide then
 _G.SettingSave.HideText = false
-SaveSettings()
+saveSettings()
 getgenv().Hide = false
-title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
 Time.TextTransparency = 0
 Fps.TextTransparency = 0
 Ping.TextTransparency = 0
@@ -804,9 +796,8 @@ HidEnable.ImageTransparency = 1
 
 else
 _G.SettingSave.HideText = true
-SaveSettings()
+saveSettings()
 getgenv().Hide = true
-title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
 Time.TextTransparency = 1
 Fps.TextTransparency = 1
 Ping.TextTransparency = 1
@@ -956,7 +947,7 @@ maxvalue = 120
                         Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue)) or 1
                         pcall(function()
                             _G.SettingSave.Fov = Value
-SaveSettings()
+saveSettings()
 
  game.Workspace.Camera.FieldOfView = Value
                         end)
@@ -966,7 +957,7 @@ SaveSettings()
                             Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue))
                             pcall(function()
                                  _G.SettingSave.Fov = Value
-SaveSettings()
+saveSettings()
  game.Workspace.Camera.FieldOfView = Value
                             end)
                             SpeedDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - SpeedDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
@@ -976,7 +967,7 @@ SaveSettings()
                                 Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue))
                                 pcall(function()
                            _G.SettingSave.Fov = Value
-SaveSettings()
+saveSettings()
  game.Workspace.Camera.FieldOfView = Value
                                 end)
                                 val.Text = Value
@@ -1002,7 +993,7 @@ SaveSettings()
 
 
 
-LoadSettings()
+loadsetting()
 
 game.Workspace.Camera.FieldOfView = _G.SettingSave.Fov
 
@@ -1034,6 +1025,28 @@ Ping.TextTransparency = 0
 HidEnable.ImageTransparency = 1
 end                     
     
+DropShadowHolder.Name = "DropShadowHolder"
+    DropShadowHolder.Parent = Main
+    DropShadowHolder.BackgroundTransparency = 1.000
+    DropShadowHolder.BorderSizePixel = 0
+    DropShadowHolder.Size = UDim2.new(1, 0, 1, 0)
+    DropShadowHolder.ZIndex = 0
+
+    DropShadow.Name = "DropShadow"
+    DropShadow.Parent = DropShadowHolder
+    DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+    DropShadow.BackgroundTransparency = 1.000
+    DropShadow.BorderSizePixel = 0
+    DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+    DropShadow.Size = UDim2.new(1, 800, 1, 800)
+    DropShadow.ZIndex = 0
+    DropShadow.Image = "rbxassetid://6015897843"
+    DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    DropShadow.ImageTransparency = 0.500
+    DropShadow.ScaleType = Enum.ScaleType.Slice
+    DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+                 
+                     
     coroutine.wrap(function()
         while wait() do
             Main.BackgroundColor3 = themeList.Background
@@ -3339,4 +3352,3 @@ end
     return Tabs
 end
 return Kavo
-
