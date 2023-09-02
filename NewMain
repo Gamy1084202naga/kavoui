@@ -141,45 +141,43 @@ local oldTheme = ""
 
 local SettingsT = { 
 
-}
 _G.SettingSave = {
-   Anonymous = false;
-   HideText = false;
+   Anonymous = False;
+   HideText = False;
    Fov = "70";
 }   
 
-if isfolder("/ROMHUB") then
-   if isfile("/ROMHUB/UiSetting", "") then
-   
-else
-   writefile("/ROMHUB/UiSetting", "") 
-   
-    
-end
-else
-  makefolder("ROMHUB")
-  writefile("/ROMHUB/UiSetting", "")   
-end
+if isfile ('ROMHUB/UiSetting') then
+delfile("ROMHUB/UiSetting")
+    end
 
-function loadsetting()
+if isfolder("ROMHUB") == false then
+        makefolder("ROMHUB")
+    end
+    
+    local function SaveSettings()
+        local JSON -- is nil
+        local HttpService = game:service('HttpService')
+        if (writefile) then
+        JSON = HttpService:JSONEncode(_G.SettingSave)
+        writefile('ROMHUB/Settings',JSON)
+        else
+            print("Exploit not supported bruv")
+        end
+    end
+
+if isfile ('ROMHUB/Settings') then
+    else
+        SaveSettings()
+    end
+    
+function LoadSettings()
 
 local HttpService= game:GetService("HttpService")
-if (readfile and isfile and isfile("/ROMHUB/UiSetting")) then
-_G.SettingSave = HttpService:JSONDecode(readfile("/ROMHUB/UiSetting"));
+if (readfile and isfile and isfile("ROMHUB/Settings")) then
+_G.SettingSave = HttpService:JSONDecode(readfile("ROMHUB/Settings"));
 
 end
-end
-
-
-function saveSettings()
-local json;
-local HttpService= game:GetService("HttpService");
-if (writefile) then
-json = HttpService:JSONEncode(_G.SettingSave);
-writefile("/ROMHUB/UiSetting", json);
-else
-
- end
 end
 
 local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
@@ -242,7 +240,7 @@ function Kavo.CreateLib(kavName, themeList)
     end
     local ScreenGui = Instance.new("ScreenGui")
     local Main = Instance.new("Frame")
-    local MainCorner = Instance.new("UICorner")    
+    local MainCorner = Instance.new("UICorner")
     local Background = Instance.new("ImageLabel")
     local BackgroundCorner = Instance.new("UICorner")
     local MainHeader = Instance.new("Frame")
@@ -457,8 +455,7 @@ spawn(function()
     close.MouseButton1Click:Connect(function()
 time = false
 Time = false
-FactName.TextTransparency = 1
-        
+
         game.TweenService:Create(close, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
             ImageTransparency = 1
         }):Play()
@@ -630,7 +627,7 @@ Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                 FactName.ZIndex = 9
                 FactName.AnchorPoint = Vector2.new(0.5, 0.5)
                 FactName.Font = Enum.Font.GothamSemibold
-                FactName.Text = "So u just click our name and u know why our hub Name is ROMHUB?? It come from my username that start with rom. And i think it pretty iconic so i use them to this time! And the hub is from other script like to end with hub! That the end!"
+                FactName.Text = "So u just click our name and u know why our hub Name is ROMHUB?? It come from my username that start with rom. And i think it pretty iconic so i use them And the hub is from other script like to end with hub! That the end!"
                 FactName.RichText = true
                 FactName.TextWrapped = true
                 FactName.TextColor3 = themeList.TextColor
@@ -640,10 +637,15 @@ Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                 FactName.TextYAlignment = Enum.TextYAlignment.Top
                 Objects[FactName] = "BackgroundColor3"
 
+while true do
+if getgenv().Executed == false then
+FactName:Destroy
+end
+end
+
 UICorner.CornerRadius = UDim.new(0, 4)
                 UICorner.Parent = FactName
-
-
+                
                 SettingUI.Name = "SettingUI"
                 SettingUI.Parent = Main
                 SettingUI.BackgroundColor3 = Color3.fromRGB(20,20,20)
@@ -714,7 +716,7 @@ anony.MouseButton1Click:Connect(function()
 
 if anonymous then
 _G.SettingSave.Anonymous = false
-saveSettings()
+SaveSettings()
 getgenv().anonymous = false
 title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
 User.Text = user
@@ -724,7 +726,7 @@ Enable.ImageTransparency = 1
 
 else
 _G.SettingSave.Anonymous = true
-saveSettings()
+SaveSettings()
 getgenv().anonymous = true
 title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
 UserImage.ImageTransparency = 0
@@ -799,7 +801,7 @@ local HidText = HideText
 Hid.MouseButton1Click:Connect(function()
 if Hide then
 _G.SettingSave.HideText = false
-saveSettings()
+SaveSettings()
 getgenv().Hide = false
 title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
 Time.TextTransparency = 0
@@ -809,7 +811,7 @@ HidEnable.ImageTransparency = 1
 
 else
 _G.SettingSave.HideText = true
-saveSettings()
+SaveSettings()
 getgenv().Hide = true
 title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
 Time.TextTransparency = 1
@@ -961,7 +963,7 @@ maxvalue = 120
                         Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue)) or 1
                         pcall(function()
                             _G.SettingSave.Fov = Value
-saveSettings()
+SaveSettings()
 
  game.Workspace.Camera.FieldOfView = Value
                         end)
@@ -971,7 +973,7 @@ saveSettings()
                             Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue))
                             pcall(function()
                                  _G.SettingSave.Fov = Value
-saveSettings()
+SaveSettings()
  game.Workspace.Camera.FieldOfView = Value
                             end)
                             SpeedDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - SpeedDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
@@ -981,7 +983,7 @@ saveSettings()
                                 Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue))
                                 pcall(function()
                            _G.SettingSave.Fov = Value
-saveSettings()
+SaveSettings()
  game.Workspace.Camera.FieldOfView = Value
                                 end)
                                 val.Text = Value
@@ -1007,9 +1009,7 @@ saveSettings()
 
 
 
-loadsetting()
-
-saveSettings()
+LoadSettings()
 
 game.Workspace.Camera.FieldOfView = _G.SettingSave.Fov
 
@@ -1041,15 +1041,6 @@ Ping.TextTransparency = 0
 HidEnable.ImageTransparency = 1
 end                     
     
-if _G.SettingSave.HideText and _G.SettingSave.Anonymous then
-
-
-title.Position = UDim2.new(0.285428565, 0, 0.455827592, 0)
-
-end
-
-
-                     
     coroutine.wrap(function()
         while wait() do
             Main.BackgroundColor3 = themeList.Background
@@ -3355,3 +3346,4 @@ end
     return Tabs
 end
 return Kavo
+
