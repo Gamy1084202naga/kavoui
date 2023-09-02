@@ -139,11 +139,9 @@ local themeStyles = {
 }
 local oldTheme = ""
 
-local SettingsT = { 
-
 _G.SettingSave = {
-   Anonymous = False;
-   HideText = False;
+   Anonymous = false;
+   HideText = false;
    Fov = "70";
 }   
 
@@ -155,7 +153,7 @@ if isfolder("ROMHUB") == false then
         makefolder("ROMHUB")
     end
     
-    local function SaveSettings()
+function SaveSettings()
         local JSON -- is nil
         local HttpService = game:service('HttpService')
         if (writefile) then
@@ -164,11 +162,6 @@ if isfolder("ROMHUB") == false then
         else
             print("Exploit not supported bruv")
         end
-    end
-
-if isfile ('ROMHUB/Settings') then
-    else
-        SaveSettings()
     end
     
 function LoadSettings()
@@ -639,7 +632,7 @@ Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
 
 while true do
 if getgenv().Executed == false then
-FactName:Destroy
+FactName:Destroy()
 end
 end
 
