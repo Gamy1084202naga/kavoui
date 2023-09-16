@@ -155,8 +155,8 @@ if isfolder("ROMHUB") == false then
 function loadsetting()
 
 local HttpService= game:GetService("HttpService")
-if (readfile and isfile and isfile("/ROMHUB/Settings")) then
-_G.SettingSave = HttpService:JSONDecode(readfile("/ROMHUB/Settings"));
+if (readfile and isfile and isfile("ROMHUB//Settings")) then
+_G.SettingSave = HttpService:JSONDecode(readfile("ROMHUB//Settings"));
 
 end
 end
@@ -166,13 +166,13 @@ local json;
 local HttpService= game:GetService("HttpService");
 if (writefile) then
 json = HttpService:JSONEncode(_G.SettingSave);
-writefile("/ROMHUB/Settings", json);
+writefile("ROMHUB//Settings",json);
 else
 
  end
 end
 
-if isfile ('/ROMHUB/Settings') then
+if isfile ('ROMHUB//Settings') then
     else
         saveSettings()
     end
