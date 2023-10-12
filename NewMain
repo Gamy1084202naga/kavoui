@@ -1,8 +1,10 @@
-
-function MakeLib()
+Check = game.CoreGui:FindFirstChild("RKAVOUIL") or game.CoreGui:FindFirstChild("ToggleR")
+if Check then
+game.CoreGui:FindFirstChild("RKAVOUIL"):Destroy()
+game.CoreGui:FindFirstChild("ToggleR"):Destroy()
+else 
+end
 local Kavo = {}
-
-
 
 local tween = game:GetService("TweenService")
 local tweeninfo = TweenInfo.new
@@ -179,8 +181,7 @@ if isfile ('ROMHUB//Settings') then
         saveSettings()
     end
 
-local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
-
+local LibName = RKAVOUIL
 function Kavo:ToggleUI()
     if game.CoreGui[LibName].Enabled then
         game.CoreGui[LibName].Enabled = false
@@ -3546,16 +3547,3 @@ end
     return Tabs
 end
 return Kavo
-end
-
-if Executed then
-ScreenGui:Destroy()
-IntroR:Destroy()
-ToggleR:Destroy()
- 
-MakeLib()
-
-else
-getgenv().Executed = true
-MakeLib()
-end
