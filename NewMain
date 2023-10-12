@@ -1,7 +1,7 @@
-Check = game.CoreGui:FindFirstChild("RKAVOUIL") or game.CoreGui:FindFirstChild("ToggleR")
+Check = game.CoreGui:FindFirstChild("RKAVOUIL") or game.CoreGui:FindFirstChild("RTOGGLE")
 if Check then
 game.CoreGui:FindFirstChild("RKAVOUIL"):Destroy()
-game.CoreGui:FindFirstChild("ToggleR"):Destroy()
+game.CoreGui:FindFirstChild("RTOGGLE"):Destroy()
 else 
 end
 local Kavo = {}
