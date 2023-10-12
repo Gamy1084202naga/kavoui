@@ -392,6 +392,18 @@ TName.TextSize = 14.000
 
 Kavo:DraggingEnabled(TButton, OutLine)
 
+TButton.MouseButton1Click:Connect(function()
+    
+if SQISJDDNKS then
+getgenv().SQISJDDNKS = false
+ Kavo:ToggleUI() 
+ else
+getgenv().SQISJDDNKS = true
+Kavo:ToggleUI()
+end            
+end)
+
+
 local markgrandient = Instance.new("UIGradient")
 markgrandient.Rotation = 0
 markgrandient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)), ColorSequenceKeypoint.new(1, Color3.fromRGB(227,27,27))}
