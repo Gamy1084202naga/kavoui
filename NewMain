@@ -235,6 +235,118 @@ function Kavo.CreateLib(kavName, themeList)
             v:Destroy()
         end
     end
+
+local IntroR = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Logo = Instance.new("ImageLabel")
+local Corner = Instance.new("UICorner") 
+local Name = Instance.new("TextLabel")
+local Discord = Instance.new("TextLabel")
+local Link = Instance.new("TextButton")
+
+
+IntroR.Parent = game.CoreGui
+IntroR.Name = "introER"
+IntroR.ResetOnSpawn = false
+IntroR.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    
+
+Frame.Parent = IntroR
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 1
+Frame.Position = UDim2.new(0.5,0,0.5,0)
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.Size = UDim2.new(0,400,0,250)
+Frame.Active = true
+
+Corner.CornerRadius = UDim.new(0, 4) 
+
+Corner.Parent = Frame
+
+Logo.Parent = Frame 
+Logo.BackgroundColor3 = Color3.new(0,0,0)
+Logo.BackgroundTransparency = 1
+Logo.Position = UDim2.new(0.495,0,0.4,0)
+Logo.AnchorPoint = Vector2.new(0.5, 0.5)
+Logo.Size = UDim2.new(0, 170, 0, 170)
+Logo.Image = "rbxassetid://13138390803"
+Logo.ImageTransparency = 1
+
+Name.Parent = Frame
+Name.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Name.BackgroundTransparency = 1
+Name.Position = UDim2.new(0.5,0,0.7,0)
+Name.Size = UDim2.new(0, 0, 0, 0)
+Name.Font = Enum.Font.Jura 
+Name.Text = "ROMHUB"
+Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+Name.TextTransparency = 1
+Name.TextSize = 40.000
+Name.TextXAlignment = Enum.TextXAlignment.Center  
+    
+Link.Parent = Frame
+Link.BackgroundColor3 = Color3.fromRGB(255,255,255)
+Link.BackgroundTransparency = 1
+Link.Position = UDim2.new(0.70, 0, 0.8652890813, 0)
+Link.Size = UDim2.new(0, 130, 0, 20)
+Link.Text = ".gg/Z6SW3Y658p"
+Link.TextColor3 = Color3.fromRGB(10, 122, 220)
+Link.TextSize = 9.000
+Link.TextTransparency = 1
+Link.TextXAlignment = Enum.TextXAlignment.Left       
+Link.MouseButton1Click:Connect(function()
+
+Link.BackgroundTransparency = 0
+setclipboard("https://discord.gg/Z6SW3Y658p")
+wait(0.3)
+Link.BackgroundTransparency = 1
+
+end)
+game:GetService("TweenService"):Create(Frame, TweenInfo.new(3, Enum.EasingStyle.Quint),
+            { BackgroundTransparency = 0 }):Play()
+            
+            wait("2")
+            
+game:GetService("TweenService"):Create(Logo, TweenInfo.new(1.5, Enum.EasingStyle.Quint),
+            { ImageTransparency = 0 }):Play()          
+
+game:GetService("TweenService"):Create(Link, TweenInfo.new(3, Enum.EasingStyle.Quint),
+        { TextTransparency = 0 }):Play()
+              
+              wait("1")
+              
+              game:GetService("TweenService"):Create(Name, TweenInfo.new(2, Enum.EasingStyle.Quint),
+            { TextTransparency = 0 }):Play()
+           
+           wait(1)
+           
+           game:GetService("TweenService"):Create(Name, TweenInfo.new(2, Enum.EasingStyle.Quint),
+            { TextTransparency = 1 }):Play()
+            
+           wait(1)
+           Name.Text = "Better Experience."
+           
+       wait(0.2)
+       game:GetService("TweenService"):Create(Name, TweenInfo.new(3, Enum.EasingStyle.Quint),
+        { TextTransparency = 0 }):Play()
+          wait(2)
+
+game:GetService("TweenService"):Create(Name, TweenInfo.new(3, Enum.EasingStyle.Quint),
+        { TextTransparency = 1 }):Play()
+
+game:GetService("TweenService"):Create(Link, TweenInfo.new(3, Enum.EasingStyle.Quint),
+        { TextTransparency = 1 }):Play()
+
+game:GetService("TweenService"):Create(Logo, TweenInfo.new(3, Enum.EasingStyle.Quint),
+            { ImageTransparency = 1 }):Play()          
+
+            wait("2")
+                
+
+            
+            game:GetService("TweenService"):Create(Frame, TweenInfo.new(1.4, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0, 525, 0, 318) }):Play()
+wait(1.4)
     local ScreenGui = Instance.new("ScreenGui")
     local Main = Instance.new("Frame")
     local MainCorner = Instance.new("UICorner")
@@ -301,7 +413,7 @@ function Kavo.CreateLib(kavName, themeList)
     MainCorner.Name = "MainCorner"
     MainCorner.Parent = Main
 
-    
+    IntroR:Destroy()
 
 
     Background.Name = "Background"
