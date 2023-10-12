@@ -281,7 +281,7 @@ Name.BackgroundTransparency = 1
 Name.Position = UDim2.new(0.5,0,0.7,0)
 Name.Size = UDim2.new(0, 0, 0, 0)
 Name.Font = Enum.Font.Jura 
-Name.Text = "ROMHUB"
+Name.Text = "Better Experience."
 Name.TextColor3 = Color3.fromRGB(255, 255, 255)
 Name.TextTransparency = 1
 Name.TextSize = 40.000
@@ -316,22 +316,11 @@ game:GetService("TweenService"):Create(Logo, TweenInfo.new(1.5, Enum.EasingStyle
 game:GetService("TweenService"):Create(Link, TweenInfo.new(3, Enum.EasingStyle.Quint),
         { TextTransparency = 0 }):Play()
               
-              wait("1")
+              wait("2")
               
-              game:GetService("TweenService"):Create(Name, TweenInfo.new(2, Enum.EasingStyle.Quint),
+              game:GetService("TweenService"):Create(Name, TweenInfo.new(3, Enum.EasingStyle.Quint),
             { TextTransparency = 0 }):Play()
-           
-           wait(1)
-           
-           game:GetService("TweenService"):Create(Name, TweenInfo.new(2, Enum.EasingStyle.Quint),
-            { TextTransparency = 1 }):Play()
             
-           wait(1)
-           Name.Text = "Better Experience."
-           
-       wait(0.2)
-       game:GetService("TweenService"):Create(Name, TweenInfo.new(3, Enum.EasingStyle.Quint),
-        { TextTransparency = 0 }):Play()
           wait(2)
 
 game:GetService("TweenService"):Create(Name, TweenInfo.new(3, Enum.EasingStyle.Quint),
@@ -368,7 +357,7 @@ OutLine.BackgroundColor3 = Color3.fromRGB(255,255,255)
 OutLine.BackgroundTransparency = 0
 OutLine.Position = UDim2.new(0.201969875, 0, 0.210441767, 0)
 OutLine.AnchorPoint = Vector2.new(0.5, 0.5)
-OutLine.Size = UDim2.new(0, 52, 0, 52)
+OutLine.Size = UDim2.new(0, 62, 0, 62)
 
 OutLineC.CornerRadius = UDim.new(0, 4) 
 OutLineC.Parent = OutLine
@@ -378,7 +367,7 @@ TButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 TButton.BackgroundTransparency = 0
 TButton.Position = UDim2.new(0.5,0,0.5,0)
 TButton.AnchorPoint = Vector2.new(0.5, 0.5)
-TButton.Size = UDim2.new(0,48,0,48)
+TButton.Size = UDim2.new(0,58,0,58)
 TButton.Image = "rbxassetid://15042983694"
 
 TButtonC.CornerRadius = UDim.new(0, 4) 
@@ -400,9 +389,17 @@ TButton.MouseButton1Click:Connect(function()
 if SQISJDDNKS then
 getgenv().SQISJDDNKS = false
  Kavo:ToggleUI() 
+game:GetService("TweenService"):Create(TButton, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0, 62, 0, 62) }):Play()
+game:GetService("TweenService"):Create(TName, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0,58,0,58) }):Play()
  else
 getgenv().SQISJDDNKS = true
 Kavo:ToggleUI()
+game:GetService("TweenService"):Create(TButton, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0, 52, 0, 52) }):Play()
+game:GetService("TweenService"):Create(TName, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0,48,0,48) }):Play()
 end            
 end)
 
