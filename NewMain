@@ -181,7 +181,7 @@ if isfile ('ROMHUB//Settings') then
         saveSettings()
     end
 
-local LibName = RKAVOUIL
+local LibName = "RKAVOUIL"
 function Kavo:ToggleUI()
     if game.CoreGui[LibName].Enabled then
         game.CoreGui[LibName].Enabled = false
