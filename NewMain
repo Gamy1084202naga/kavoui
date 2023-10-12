@@ -380,7 +380,7 @@ TName.AnchorPoint = Vector2.new(0.5, 0.5)
 TName.TextColor3 = Color3.fromRGB(227,27,27)
 TName.Font = Enum.Font.Jura
 TName.Text = "ROMHUB"
-TName.TextSize = 14.000
+TName.TextScaled = true
 
 Kavo:DraggingEnabled(TButton, OutLine)
 
