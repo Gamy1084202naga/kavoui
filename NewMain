@@ -1,4 +1,4 @@
-Check = game.CoreGui:FindFirstChild("RKAVOUIL") or game.CoreGui:FindFirstChild("RTOGGLE")
+Check = game.CoreGui:FindFirstChild("RKAVOUIL") and game.CoreGui:FindFirstChild("RTOGGLE")
 if Check then
 game.CoreGui:FindFirstChild("RKAVOUIL"):Destroy()
 game.CoreGui:FindFirstChild("RTOGGLE"):Destroy()
@@ -305,10 +305,10 @@ wait(0.3)
 Link.BackgroundTransparency = 1
 
 end)
-game:GetService("TweenService"):Create(Frame, TweenInfo.new(3, Enum.EasingStyle.Quint),
+game:GetService("TweenService"):Create(Frame, TweenInfo.new(2, Enum.EasingStyle.Quint),
             { BackgroundTransparency = 0 }):Play()
             
-            wait("2")
+            wait("1")
             
 game:GetService("TweenService"):Create(Logo, TweenInfo.new(1.5, Enum.EasingStyle.Quint),
             { ImageTransparency = 0 }):Play()          
@@ -391,7 +391,7 @@ getgenv().SQISJDDNKS = false
  Kavo:ToggleUI() 
 game:GetService("TweenService"):Create(OutLine, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0,52,0,52) }):Play()
-game:GetService("TweenService"):Create(TButtom, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
+game:GetService("TweenService"):Create(TButton, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0,48,0,48) }):Play()
  else
 getgenv().SQISJDDNKS = true
