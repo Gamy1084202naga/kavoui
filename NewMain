@@ -1631,7 +1631,7 @@ end
                 TextBox.ZIndex = 99
                 TextBox.ClearTextOnFocus = false
                 TextBox.Font = Enum.Font.Gotham
-                TextBox.PlaceholderColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 19, themeList.SchemeColor.g * 255 - 26, themeList.SchemeColor.b * 255 - 35)
+                TextBox.PlaceholderColor3 = Color3.fromRGB(themeList.SchemeColor)
                 TextBox.PlaceholderText = "Type here!"
                 TextBox.Text = ""
                 TextBox.TextColor3 = themeList.SchemeColor
@@ -1763,7 +1763,7 @@ end
                         moreInfo.TextColor3 = themeList.TextColor
                         write.ImageColor3 = themeList.SchemeColor
                         togName.TextColor3 = themeList.TextColor
-                        TextBox.PlaceholderColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 19, themeList.SchemeColor.g * 255 - 26, themeList.SchemeColor.b * 255 - 35)
+                        TextBox.PlaceholderColor3 = Color3.fromRGB(themeList.SchemeColor)
                         TextBox.TextColor3 = themeList.SchemeColor
                     end
                 end)()
