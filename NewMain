@@ -380,7 +380,7 @@ TName.AnchorPoint = Vector2.new(0.5, 0.5)
 TName.TextColor3 = Color3.fromRGB(227,27,27)
 TName.Font = Enum.Font.Jura
 TName.Text = "ROMHUB"
-TName.TextSize = 10
+TName.TextSize = 14
 
 Kavo:DraggingEnabled(TButton, OutLine)
 
@@ -393,6 +393,8 @@ game:GetService("TweenService"):Create(OutLine, TweenInfo.new(0.4, Enum.EasingSt
             { Size = UDim2.new(0,52,0,52) }):Play()
 game:GetService("TweenService"):Create(TButton, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0,48,0,48) }):Play()
+game:GetService("TweenService"):Create(TName, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
+            { TextSize = 14 }):Play()
  else
 getgenv().SQISJDDNKS = true
 Kavo:ToggleUI()
@@ -400,6 +402,8 @@ game:GetService("TweenService"):Create(OutLine, TweenInfo.new(0.4, Enum.EasingSt
             { Size = UDim2.new(0,47,0,47) }):Play()
 game:GetService("TweenService"):Create(TButton, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0,43,0,43) }):Play()
+game:GetService("TweenService"):Create(TName, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
+            { TextSize = 12 }):Play()
 end            
 end)
 
