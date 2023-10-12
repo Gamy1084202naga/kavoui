@@ -347,6 +347,62 @@ game:GetService("TweenService"):Create(Logo, TweenInfo.new(3, Enum.EasingStyle.Q
             game:GetService("TweenService"):Create(Frame, TweenInfo.new(1.4, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0, 525, 0, 318) }):Play()
 wait(1.4)
+
+local ToggleR = Instance.new("ScreenGui")
+local OutLine = Instance.new("Frame")
+local OutLineC = Instance.new("UICorner")
+local TButton = Instance.new("ImageButton")
+local TName = Instance.new("TextLabel")
+local TButtonC = Instance.new("UICorner")
+
+ToggleR.Parent = game.CoreGui
+ToggleR.Name = "RTOGGLE"
+ToggleR.ResetOnSpawn = false
+ToggleR.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+   
+OutLine.Parent = ToggleR
+OutLine.BackgroundColor3 = Color3.fromRGB(255,255,255)
+OutLine.BackgroundTransparency = 0
+OutLine.Position = UDim2.new(0.201969875, 0, 0.210441767, 0)
+OutLine.AnchorPoint = Vector2.new(0.5, 0.5)
+OutLine.Size = UDim2.new(0, 52, 0, 52)
+
+OutLineC.CornerRadius = UDim.new(0, 4) 
+OutLineC.Parent = OutLine
+
+TButton.Parent = OutLine
+TButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TButton.BackgroundTransparency = 0
+TButton.Position = UDim2.new(0.5,0,0.5,0)
+TButton.AnchorPoint = Vector2.new(0.5, 0.5)
+TButton.Size = UDim2.new(0,48,0,48)
+TButton.Image = "rbxassetid://15042983694"
+
+TButtonC.CornerRadius = UDim.new(0, 4) 
+TButtonC.Parent = TButton
+
+TName.Parent = TButton
+TName.BackgroundTransparency = 0
+TName.Position = UDim2.new(0.5,0,0.5,0)
+TName.AnchorPoint = Vector2.new(0.5, 0.5)
+TName.TextColor3 = Color3.fromRGB(227,27,27)
+TName.Font = Enum.Font.Jura
+TName.Text = "ROMHUB"
+TName.TextSize = 14.000
+
+Kavo:DraggingEnabled(TButton, OutLine)
+
+local markgrandient = Instance.new("UIGradient")
+markgrandient.Rotation = 0
+markgrandient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)), ColorSequenceKeypoint.new(1, Color3.fromRGB(227,27,27))}
+markgrandient.Parent = OutLine
+
+spawn(function()
+        while task.wait() do
+                markgrandient.Rotation = markgrandient.Rotation + 2
+        end
+    end) 
+
     local ScreenGui = Instance.new("ScreenGui")
     local Main = Instance.new("Frame")
     local MainCorner = Instance.new("UICorner")
