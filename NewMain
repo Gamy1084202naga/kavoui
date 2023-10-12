@@ -1,3 +1,5 @@
+
+function MakeLib()
 local Kavo = {}
 
 
@@ -668,11 +670,15 @@ spawn(function()
 			Size = UDim2.new(0,0,0,0),
 			Position = UDim2.new(0, Main.AbsolutePosition.X + (Main.AbsoluteSize.X / 2), 0, Main.AbsolutePosition.Y + (Main.AbsoluteSize.Y / 2))
 		}):Play()
+        game.TweenService:Create(OutLine, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+			Size = UDim2.new(0,0,0,0),
+			Position = UDim2.new(0, OutLine.AbsolutePosition.X + (OutLine.AbsoluteSize.X / 2), 0, OutLine.AbsolutePosition.Y + (OutLine.AbsoluteSize.Y / 2))
+        }):Play()
         wait(1)
 
-           getgenv().Executed = false
-        ScreenGui:Destroy()
-game.CoreGui:FindFirstChild("ROMHUBTOGGLE"):Destroy()
+        getgenv().Executed = false
+        ScreenGui:Destroy() 
+        ToggleR:Destroy()
     end)
 
     Setting.Name = "Setting"
@@ -3540,3 +3546,16 @@ end
     return Tabs
 end
 return Kavo
+end
+
+if Executed then
+ScreenGui:Destroy()
+IntroR:Destroy()
+ToggleR:Destroy()
+ 
+MakeLib()
+
+else
+getgenv().Executed = true
+MakeLib()
+end
