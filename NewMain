@@ -389,12 +389,16 @@ TButton.MouseButton1Click:Connect(function()
 if SQISJDDNKS then
 getgenv().SQISJDDNKS = false
  Kavo:ToggleUI() 
-game:GetService("TweenService"):Create(TName, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
+game:GetService("TweenService"):Create(OutLine, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0,52,0,52) }):Play()
+game:GetService("TweenService"):Create(TButtom, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0,48,0,48) }):Play()
  else
 getgenv().SQISJDDNKS = true
 Kavo:ToggleUI()
-game:GetService("TweenService"):Create(TName, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
+game:GetService("TweenService"):Create(OutLine, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0,47,0,47) }):Play()
+game:GetService("TweenService"):Create(TButton, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0,43,0,43) }):Play()
 end            
 end)
