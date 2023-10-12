@@ -489,7 +489,7 @@ do
 			end
 			return ("03 %02d"):format(G)
 		end)(tonumber(os.date"%Y"))] = "🥚",
-		["10 12"] = "🎃",
+		["10 31"] = "🎃",
 		["12 25"] = "🎄"
 	})[os.date("%m %d")]
 	if emoji then
