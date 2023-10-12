@@ -1,9 +1,3 @@
-Check = game.CoreGui:FindFirstChild("RKAVOUIL") and game.CoreGui:FindFirstChild("RTOGGLE")
-if Check then
-game.CoreGui:FindFirstChild("RKAVOUIL"):Destroy()
-game.CoreGui:FindFirstChild("RTOGGLE"):Destroy()
-else 
-end
 local Kavo = {}
 
 local tween = game:GetService("TweenService")
