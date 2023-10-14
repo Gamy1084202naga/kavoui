@@ -337,7 +337,7 @@ game:GetService("TweenService"):Create(Logo, TweenInfo.new(3, Enum.EasingStyle.Q
                 
             game:GetService("TweenService"):Create(Frame, TweenInfo.new(1.4, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0, 525, 0, 318) }):Play()
-wait(1.4
+wait(1.4)
 end
 
 local ToggleR = Instance.new("ScreenGui")
