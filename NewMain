@@ -279,7 +279,7 @@ Name.TextColor3 = Color3.fromRGB(255, 255, 255)
 Name.TextTransparency = 1
 Name.TextSize = 40.000
 Name.TextXAlignment = Enum.TextXAlignment.Center 
-
+loadsetting()
 if _G.SettingSave.FastIntro then
 
 game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.7, Enum.EasingStyle.Quint),
@@ -1252,9 +1252,6 @@ saveSettings()
                 
 
 
-
-
-loadsetting()
 
 game.Workspace.Camera.FieldOfView = _G.SettingSave.Fov
 
