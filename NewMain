@@ -143,6 +143,7 @@ local SettingsT = {
 _G.SettingSave = {
    Anonymous = false;
    HideText = false;
+   FastIntro = false;
    Fov = "70";
 }   
 
@@ -261,41 +262,70 @@ Corner.Parent = Frame
 Logo.Parent = Frame 
 Logo.BackgroundColor3 = Color3.new(0,0,0)
 Logo.BackgroundTransparency = 1
-Logo.Position = UDim2.new(0.495,0,0.44,0)
+Logo.Position = UDim2.new(0.495,0,0.445,0)
 Logo.AnchorPoint = Vector2.new(0.5, 0.5)
-Logo.Size = UDim2.new(0, 200, 0, 200)
+Logo.Size = UDim2.new(0, 220, 0, 220)
 Logo.Image = "rbxassetid://13138390803"
 Logo.ImageTransparency = 1
 
 Name.Parent = Frame
 Name.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Name.BackgroundTransparency = 1
-Name.Position = UDim2.new(0.5,0,0.7,0)
+Name.Position = UDim2.new(0.51,0,0.77,0)
 Name.Size = UDim2.new(0, 0, 0, 0)
 Name.Font = Enum.Font.Jura 
-Name.Text = "Better Experience."
+Name.Text = "Better Experience"
 Name.TextColor3 = Color3.fromRGB(255, 255, 255)
 Name.TextTransparency = 1
 Name.TextSize = 40.000
 Name.TextXAlignment = Enum.TextXAlignment.Center  
-    
-game:GetService("TweenService"):Create(Frame, TweenInfo.new(2, Enum.EasingStyle.Quint),
+if FastIntro then
+waitIntro = 3.8
+game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quint),
             { BackgroundTransparency = 0 }):Play()
             
-            wait("1")
+            wait("0.8")
             
-game:GetService("TweenService"):Create(Logo, TweenInfo.new(1.5, Enum.EasingStyle.Quint),
+game:GetService("TweenService"):Create(Logo, TweenInfo.new(0.7, Enum.EasingStyle.Quint),
             { ImageTransparency = 0 }):Play()          
+              
+              wait("0.7")
+              
+              game:GetService("TweenService"):Create(Name, TweenInfo.new(0.7, Enum.EasingStyle.Quint),
+            { TextTransparency = 0 }):Play()
+            
+          wait(0.7)
 
-game:GetService("TweenService"):Create(Link, TweenInfo.new(3, Enum.EasingStyle.Quint),
-        { TextTransparency = 0 }):Play()
+game:GetService("TweenService"):Create(Name, TweenInfo.new(0.9, Enum.EasingStyle.Quint),
+        { TextTransparency = 1 }):Play()
+
+game:GetService("TweenService"):Create(Logo, TweenInfo.new(0.9, Enum.EasingStyle.Quint),
+            { ImageTransparency = 1 }):Play()          
+
+            wait("0.9")
+                
+
+            
+            game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.7, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0, 525, 0, 318) }):Play()
+wait(0.7)
+
+else
+waitIntro = 9.4
+game:GetService("TweenService"):Create(Frame, TweenInfo.new(3, Enum.EasingStyle.Quint),
+            { BackgroundTransparency = 0 }):Play()
+            
+            wait("2")
+            
+game:GetService("TweenService"):Create(Logo, TweenInfo.new(3, Enum.EasingStyle.Quint),
+            { ImageTransparency = 0 }):Play()          
               
               wait("2")
               
               game:GetService("TweenService"):Create(Name, TweenInfo.new(3, Enum.EasingStyle.Quint),
             { TextTransparency = 0 }):Play()
             
-          wait(2)
+          wait("2")
 
 game:GetService("TweenService"):Create(Name, TweenInfo.new(3, Enum.EasingStyle.Quint),
         { TextTransparency = 1 }):Play()
@@ -305,11 +335,11 @@ game:GetService("TweenService"):Create(Logo, TweenInfo.new(3, Enum.EasingStyle.Q
 
             wait("2")
                 
-
-            
             game:GetService("TweenService"):Create(Frame, TweenInfo.new(1.4, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0, 525, 0, 318) }):Play()
-wait(1.4)
+end
+
+wait(waitIntro)
 
 local ToggleR = Instance.new("ScreenGui")
 local OutLine = Instance.new("Frame")
@@ -967,7 +997,78 @@ HidEnable.ImageTransparency = 0
 end
 end)
 
+local FastButton = Instance.new("TextButton")                    
+                    local FastDisabled = Instance.new("ImageLabel")
+                    local FastEnabled = Instance.new("ImageLabel")
+                    local FastText = Instance.new("TextLabel")                  
+                    
+                    FastButton.Name = "FastButton"
+                    FastButton.Parent = SettingUI
+                    FastButton.BackgroundColor3 = themeList.ElementColor
+                    FastButton.Position = UDim2.new(0,0,0.44,0)
+                    FastButton.ClipsDescendants = true
+                    FastButton.Size = UDim2.new(0, 352, 0, 33)
+                    FastButton.AutoButtonColor = false
+                    FastButton.Font = Enum.Font.SourceSans
+                    FastButton.Text = ""
+                    FastButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+                    FastButton.TextSize = 14.000                    
 
+                    FastDisabled.Name = "FastDisabled"
+                    FastDisabled.Parent = FastButton
+                    FastDisabled.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    FastDisabled.BackgroundTransparency = 1.000
+                    FastDisabled.Position = UDim2.new(0.0199999996, 0, 0.180000007, 0)
+                    FastDisabled.Size = UDim2.new(0, 21, 0, 21)
+                    FastDisabled.Image = "rbxassetid://3926309567"
+                    FastDisabled.ImageColor3 = themeList.SchemeColor
+                    FastDisabled.ImageRectOffset = Vector2.new(628, 420)
+                    FastDisabled.ImageRectSize = Vector2.new(48, 48)
+
+                    FastEnabled.Name = "FastEnabled"
+                    FastEnabled.Parent = FastButton
+                    FastEnabled.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    FastEnabled.BackgroundTransparency = 1.000
+                    FastEnabled.Position = UDim2.new(0.0199999996, 0, 0.180000007, 0)
+                    FastEnabled.Size = UDim2.new(0, 21, 0, 21)
+                    FastEnabled.Image = "rbxassetid://3926309567"
+                    FastEnabled.ImageColor3 = themeList.SchemeColor
+                    FastEnabled.ImageRectOffset = Vector2.new(784, 420)
+                    FastEnabled.ImageRectSize = Vector2.new(48, 48)
+                    FastEnabled.ImageTransparency = 1.000
+
+                    FastText.Name = "FastText"
+                    FastText.Parent = FastButton
+                    FastText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    FastText.BackgroundTransparency = 1.000
+                    FastText.Position = UDim2.new(0.096704483, 0, 0.272727281, 0)
+                    FastText.Size = UDim2.new(0, 288, 0, 14)
+                    FastText.Font = Enum.Font.GothamSemibold
+                    FastText.Text = "Fast Intro"
+                    FastText.RichText = true
+                    FastText.TextColor3 = themeList.TextColor
+                    FastText.TextSize = 14.000
+                    FastText.TextXAlignment = Enum.TextXAlignment.Left
+                    
+                    
+
+
+local Fast = FastButton
+local FastEnable = FastEnabled
+local FastText = FastText
+Fast.MouseButton1Click:Connect(function()
+if Fast then
+_G.SettingSave.FastIntro = false
+saveSettings()
+getgenv().Fast = false
+FastEnable.ImageTransparency = 1
+else
+_G.SettingSave.FastIntro = true
+saveSettings()
+getgenv().Fast = true
+FastEnable.ImageTransparency = 0             
+end
+end)
 
 maxvalue = 120
                 minvalue = 70
@@ -987,7 +1088,7 @@ maxvalue = 120
                 Speed.Name = "Speed"
                 Speed.Parent = SettingUI
                 Speed.BackgroundColor3 = themeList.ElementColor
-                Speed.Position = UDim2.new(0,0,0.44,0)
+                Speed.Position = UDim2.new(0,0,0.66,0)
                 Speed.ClipsDescendants = true
                 Speed.Size = UDim2.new(0, 352, 0, 33)
                 Speed.AutoButtonColor = false
@@ -1184,6 +1285,14 @@ getgenv().Hide = false
 Time.TextTransparency = 0
 Fps.TextTransparency = 0
 Ping.TextTransparency = 0
+HidEnable.ImageTransparency = 1
+end                     
+
+if _G.SettingSave.FastIntro then
+getgenv().Hide = true
+HidEnable.ImageTransparency = 0
+else
+getgenv().Hide = false
 HidEnable.ImageTransparency = 1
 end                     
                      
