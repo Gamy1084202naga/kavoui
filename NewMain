@@ -278,31 +278,32 @@ Name.Text = "Better Experience"
 Name.TextColor3 = Color3.fromRGB(255, 255, 255)
 Name.TextTransparency = 1
 Name.TextSize = 40.000
-Name.TextXAlignment = Enum.TextXAlignment.Center  
-if FastIntro then
-waitIntro = 3.8
-game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.8, Enum.EasingStyle.Quint),
+Name.TextXAlignment = Enum.TextXAlignment.Center 
+
+if _G.SettingSave.FastIntro then
+
+game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.7, Enum.EasingStyle.Quint),
             { BackgroundTransparency = 0 }):Play()
             
-            wait("0.8")
+            wait("0.7")
             
-game:GetService("TweenService"):Create(Logo, TweenInfo.new(0.7, Enum.EasingStyle.Quint),
+game:GetService("TweenService"):Create(Logo, TweenInfo.new(0.6, Enum.EasingStyle.Quint),
             { ImageTransparency = 0 }):Play()          
               
-              wait("0.7")
+              wait("0.6")
               
-              game:GetService("TweenService"):Create(Name, TweenInfo.new(0.7, Enum.EasingStyle.Quint),
+              game:GetService("TweenService"):Create(Name, TweenInfo.new(0.6, Enum.EasingStyle.Quint),
             { TextTransparency = 0 }):Play()
             
-          wait(0.7)
+          wait(0.6)
 
-game:GetService("TweenService"):Create(Name, TweenInfo.new(0.9, Enum.EasingStyle.Quint),
+game:GetService("TweenService"):Create(Name, TweenInfo.new(0.7, Enum.EasingStyle.Quint),
         { TextTransparency = 1 }):Play()
 
-game:GetService("TweenService"):Create(Logo, TweenInfo.new(0.9, Enum.EasingStyle.Quint),
+game:GetService("TweenService"):Create(Logo, TweenInfo.new(0.7, Enum.EasingStyle.Quint),
             { ImageTransparency = 1 }):Play()          
 
-            wait("0.9")
+            wait("0.7")
                 
 
             
@@ -311,7 +312,6 @@ game:GetService("TweenService"):Create(Logo, TweenInfo.new(0.9, Enum.EasingStyle
 wait(0.7)
 
 else
-waitIntro = 9.4
 game:GetService("TweenService"):Create(Frame, TweenInfo.new(3, Enum.EasingStyle.Quint),
             { BackgroundTransparency = 0 }):Play()
             
@@ -1287,11 +1287,11 @@ HidEnable.ImageTransparency = 1
 end                     
 
 if _G.SettingSave.FastIntro then
-getgenv().Hide = true
-HidEnable.ImageTransparency = 0
+getgenv().Fast = true
+FastEnable.ImageTransparency = 0
 else
-getgenv().Hide = false
-HidEnable.ImageTransparency = 1
+getgenv().Fast = false
+FastEnable.ImageTransparency = 1
 end                     
                      
     coroutine.wrap(function()
