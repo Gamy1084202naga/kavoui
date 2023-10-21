@@ -672,7 +672,7 @@ Setting,
 TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 {Rotation = 0}
 ):Play()
-Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
+Utility:TweenObject(SettingUI, {Position = UDim2.new(2, 0, 0.6, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
 getgenv().setting = false
 
@@ -683,7 +683,7 @@ Setting,
 TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 {Rotation = 360}
 ):Play()
-                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.85, 0, 0.4, 0)}, 0.8)
+                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.85, 0, 0.6, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
 end
 end)                    
@@ -828,8 +828,8 @@ UICorner.CornerRadius = UDim.new(0, 4)
                 SettingUI.Name = "SettingUI"
                 SettingUI.Parent = Main
                 SettingUI.BackgroundColor3 = Color3.fromRGB(20,20,20)
-                SettingUI.Position = UDim2.new(0.85,0,2,0)
-                SettingUI.Size = UDim2.new(0, 203, 0, 318)
+                SettingUI.Position = UDim2.new(2,0,6,0)
+                SettingUI.Size = UDim2.new(0, 150, 0, 318)
                 SettingUI.ZIndex = 9
                 SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
 
