@@ -828,15 +828,17 @@ UICorner.CornerRadius = UDim.new(0, 4)
                 SettingUI.Name = "SettingUI"
                 SettingUI.Parent = Main
                 SettingUI.BackgroundColor3 = themeList.Header
+                SettingUI.BorderSizePixel = 0
                 SettingUI.Position = UDim2.new(2,0,0.6,0)
-                SettingUI.Size = UDim2.new(0, 155, 0, 318)
+                SettingUI.Size = UDim2.new(0, 150, 0, 320)
                 SettingUI.ZIndex = 9
                 SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
 
                     local toggleElement = Instance.new("TextButton")                    
                     local toggleDisabled = Instance.new("ImageLabel")
                     local toggleEnabled = Instance.new("ImageLabel")
-                    local togName = Instance.new("TextLabel")                  
+                    local togName = Instance.new("TextLabel")       
+                    local UICorner = Instance.new("UICorner")
                     local Sample = Instance.new("ImageLabel")
                
                     toggleElement.Name = "toggleElement"
@@ -850,7 +852,10 @@ UICorner.CornerRadius = UDim.new(0, 4)
                     toggleElement.Font = Enum.Font.SourceSans
                     toggleElement.Text = ""
                     toggleElement.TextColor3 = Color3.fromRGB(0, 0, 0)
-                    toggleElement.TextSize = 14.000                    
+                    toggleElement.TextSize = 14.000              
+
+                    UICorner.CornerRadius = UDim.new(0, 4)
+                    UICorner.Parent = toggleElement
 
                     toggleDisabled.Name = "toggleDisabled"
                     toggleDisabled.Parent = toggleElement
@@ -879,7 +884,7 @@ UICorner.CornerRadius = UDim.new(0, 4)
                     togName.Parent = toggleElement
                     togName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                     togName.BackgroundTransparency = 1.000
-                    togName.Position = UDim2.new(0.1096704483, 0, 0.272727281, 0)
+                    togName.Position = UDim2.new(0.2096704483, 0, 0.272727281, 0)
                     togName.Size = UDim2.new(0, 288, 0, 14)
                     togName.Font = Enum.Font.GothamSemibold
                     togName.Text = "Anonymous"
@@ -920,7 +925,8 @@ end)
  local HideButton = Instance.new("TextButton")                    
                     local HideDisabled = Instance.new("ImageLabel")
                     local HideEnabled = Instance.new("ImageLabel")
-                    local HideText = Instance.new("TextLabel")                  
+                    local HideText = Instance.new("TextLabel")        
+                    local UICorner = Instance.new("UICorner")                 
                     
                     HideButton.Name = "HideButton"
                     HideButton.Parent = SettingUI
@@ -934,6 +940,9 @@ end)
                     HideButton.Text = ""
                     HideButton.TextColor3 = Color3.fromRGB(0, 0, 0)
                     HideButton.TextSize = 14.000                    
+
+                    UICorner.CornerRadius = UDim.new(0, 4)
+                    UICorner.Parent = HideButton
 
                     HideDisabled.Name = "HideDisabled"
                     HideDisabled.Parent = HideButton
@@ -962,7 +971,7 @@ end)
                     HideText.Parent = HideButton
                     HideText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                     HideText.BackgroundTransparency = 1.000
-                    HideText.Position = UDim2.new(0.1096704483, 0, 0.272727281, 0)
+                    HideText.Position = UDim2.new(0.2096704483, 0, 0.272727281, 0)
                     HideText.Size = UDim2.new(0, 288, 0, 14)
                     HideText.Font = Enum.Font.GothamSemibold
                     HideText.Text = "HideText"
@@ -1001,8 +1010,9 @@ end)
 local FastButton = Instance.new("TextButton")                    
                     local FastDisabled = Instance.new("ImageLabel")
                     local FastEnabled = Instance.new("ImageLabel")
-                    local FastText = Instance.new("TextLabel")                  
-                    
+                    local FastText = Instance.new("TextLabel")                               
+                    local UICorner = Instance.new("UICorner")
+
                     FastButton.Name = "FastButton"
                     FastButton.Parent = SettingUI
                     FastButton.BackgroundColor3 = themeList.ElementColor
@@ -1015,6 +1025,9 @@ local FastButton = Instance.new("TextButton")
                     FastButton.Text = ""
                     FastButton.TextColor3 = Color3.fromRGB(0, 0, 0)
                     FastButton.TextSize = 14.000                    
+
+                    UICorner.CornerRadius = UDim.new(0, 4)
+                    UICorner.Parent = FastButton
 
                     FastDisabled.Name = "FastDisabled"
                     FastDisabled.Parent = FastButton
@@ -1043,7 +1056,7 @@ local FastButton = Instance.new("TextButton")
                     FastText.Parent = FastButton
                     FastText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                     FastText.BackgroundTransparency = 1.000
-                    FastText.Position = UDim2.new(0.1096704483, 0, 0.272727281, 0)
+                    FastText.Position = UDim2.new(0.2096704483, 0, 0.272727281, 0)
                     FastText.Size = UDim2.new(0, 288, 0, 14)
                     FastText.Font = Enum.Font.GothamSemibold
                     FastText.Text = "Fast Intro"
