@@ -340,85 +340,113 @@ game:GetService("TweenService"):Create(Logo, TweenInfo.new(3, Enum.EasingStyle.Q
 wait(1.4)
 end
 
-local ToggleR = Instance.new("ScreenGui")
-local OutLine = Instance.new("Frame")
-local OutLineC = Instance.new("UICorner")
-local TButton = Instance.new("ImageButton")
-local TName = Instance.new("TextLabel")
-local TButtonC = Instance.new("UICorner")
+local Click = Instance.new("Sound")
+Click.Parent = workspace
 
-ToggleR.Parent = game.CoreGui
-ToggleR.Name = "RTOGGLE"
-ToggleR.ResetOnSpawn = false
-ToggleR.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-   
-OutLine.Parent = ToggleR
-OutLine.BackgroundColor3 = Color3.fromRGB(255,255,255)
-OutLine.BackgroundTransparency = 0
-OutLine.Position = UDim2.new(0.201969875, 0, 0.210441767, 0)
-OutLine.AnchorPoint = Vector2.new(0.5, 0.5)
-OutLine.Size = UDim2.new(0, 52, 0, 52)
+                Click.SoundId = "rbxassetid://6052551351"
+                Click.Volume = 1
+ 
+local ScreenGui = Instance.new("ScreenGui")
+local Icon = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local Content = Instance.new("TextLabel")
+local Custom = Instance.new("ImageLabel")
+local UICorner_2 = Instance.new("UICorner")
 
-OutLineC.CornerRadius = UDim.new(0, 4) 
-OutLineC.Parent = OutLine
+ScreenGui.Parent = game.CoreGui
 
-TButton.Parent = OutLine
-TButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-TButton.BackgroundTransparency = 0
-TButton.Position = UDim2.new(0.5,0,0.5,0)
-TButton.AnchorPoint = Vector2.new(0.5, 0.5)
-TButton.Size = UDim2.new(0,48,0,48)
-TButton.Image = "rbxassetid://15042983694"
+Icon.Name = "Icon"
+Icon.Parent = ScreenGui
+Icon.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Icon.BackgroundTransparency = 0.500
+Icon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Icon.BorderSizePixel = 0
+Icon.Position = UDim2.new(0, 107, 0, -32)
+Icon.Size = UDim2.new(0, 32, 0, 32)
+Icon.Text = ""
 
-TButtonC.CornerRadius = UDim.new(0, 4) 
-TButtonC.Parent = TButton
+UICorner.Parent = Icon
 
-TName.Parent = TButton
-TName.BackgroundTransparency = 0
-TName.Position = UDim2.new(0.5,0,0.5,0)
-TName.AnchorPoint = Vector2.new(0.5, 0.5)
-TName.TextColor3 = Color3.fromRGB(227,27,27)
-TName.Font = Enum.Font.Jura
-TName.Text = "ROMHUB"
-TName.TextSize = 13.5
+Custom.Name = "Custom"
+Custom.Parent = Icon
+Custom.AnchorPoint = Vector2.new(0.1, 0.5)
+Custom.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Custom.BackgroundTransparency = 1.000
+Custom.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Custom.BorderSizePixel = 0
+Custom.ClipsDescendants = true
+Custom.Position = UDim2.new(0.05, 0, 0.5, 0)
+Custom.Size = UDim2.new(0, 32, 0, 32)
+Custom.Image = "rbxasset://diDlssA0nVy2YFOM/Rlogo.png"
+Custom.ImageTransparency = 0
 
-Kavo:DraggingEnabled(TButton, OutLine)
+UICorner_2.Parent = Custom
 
-TButton.MouseButton1Click:Connect(function()
-    
-if SQISJDDNKS then
-getgenv().SQISJDDNKS = false
- Kavo:ToggleUI() 
-game:GetService("TweenService"):Create(OutLine, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
-            { Size = UDim2.new(0,52,0,52) }):Play()
-game:GetService("TweenService"):Create(TButton, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
-            { Size = UDim2.new(0,48,0,48) }):Play()
-game:GetService("TweenService"):Create(TName, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
-            { TextSize = 13.5 }):Play()
- else
-getgenv().SQISJDDNKS = true
-Kavo:ToggleUI()
-game:GetService("TweenService"):Create(OutLine, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
-            { Size = UDim2.new(0,47,0,47) }):Play()
-game:GetService("TweenService"):Create(TButton, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
-            { Size = UDim2.new(0,43,0,43) }):Play()
-game:GetService("TweenService"):Create(TName, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
-            { TextSize = 12 }):Play()
-end            
+Content.Parent = Icon
+Content.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Content.BackgroundTransparency = 1
+Content.Position = UDim2.new(0.35,0,0.48,0)
+Content.Size = UDim2.new(0, 0, 0, 0)
+Content.Font = Enum.Font.Jura
+Content.Text = ""
+Content.TextColor3 = Color3.fromRGB(0,0,0)
+Content.TextTransparency = 0
+Content.TextSize = 20.000
+Content.TextXAlignment = Enum.TextXAlignment.Left
+
+Icon.MouseEnter:Connect(function()
+if close then
+else
+game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0,112,0,32) }):Play()          
+game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { BackgroundColor3 = Color3.fromRGB(255, 255,255) }):Play()
+Content.Text = "Closed"
+Content.TextTransparency = 0
+end
 end)
 
+Icon.MouseLeave:Connect(function()
+if close then
+game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0,112,0,32) }):Play()          
+game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { BackgroundColor3 = Color3.fromRGB(255, 255,255) }):Play()
+Content.Text = "Closed"
+Content.TextTransparency = 0
+else
+game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { BackgroundColor3 = Color3.fromRGB(0,0,0) }):Play()
+game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0,32,0,32) }):Play()
+Content.Text = ""
+Content.TextTransparency = 1
+end
+end)
 
-local markgrandient = Instance.new("UIGradient")
-markgrandient.Rotation = 0
-markgrandient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)), ColorSequenceKeypoint.new(1, Color3.fromRGB(227,27,27))}
-markgrandient.Parent = OutLine
-
-spawn(function()
-        while task.wait() do
-                markgrandient.Rotation = markgrandient.Rotation + 2
-        end
-    end) 
-
+Icon.MouseButton1Click:Connect(function()
+if not close then
+close = true
+Kavo:ToggleUI() 
+game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0,112,0,32) }):Play()          
+game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { BackgroundColor3 = Color3.fromRGB(255, 255,255) }):Play()
+Content.Text = "Closed"
+Content.TextTransparency = 0
+Click:Play()
+else
+close = false
+Kavo:ToggleUI() 
+game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { BackgroundColor3 = Color3.fromRGB(0,0,0) }):Play()
+game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { Size = UDim2.new(0,32,0,32) }):Play()
+Content.Text = ""
+Content.TextTransparency = 1
+Click:Play()
+end
+end)
     local ScreenGui = Instance.new("ScreenGui")
     local Main = Instance.new("Frame")
     local MainCorner = Instance.new("UICorner")
