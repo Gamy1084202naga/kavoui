@@ -144,7 +144,6 @@ _G.SettingSave = {
    Anonymous = false;
    HideText = false;
    FastIntro = false;
-   DiffToggle = false
    Fov = "70";
 }   
 
@@ -341,88 +340,6 @@ game:GetService("TweenService"):Create(Logo, TweenInfo.new(3, Enum.EasingStyle.Q
 wait(1.4)
 end
 
-if _G.SettingSave.DiffToggle then
-local ToggleR = Instance.new("ScreenGui")
-local OutLine = Instance.new("Frame")
-local OutLineC = Instance.new("UICorner")
-local TButton = Instance.new("ImageButton")
-local TName = Instance.new("TextLabel")
-local TButtonC = Instance.new("UICorner")
-
-ToggleR.Parent = game.CoreGui
-ToggleR.Name = "RTOGGLE"
-ToggleR.ResetOnSpawn = false
-ToggleR.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-   
-OutLine.Parent = ToggleR
-OutLine.BackgroundColor3 = Color3.fromRGB(255,255,255)
-OutLine.BackgroundTransparency = 0
-OutLine.Position = UDim2.new(0.201969875, 0, 0.210441767, 0)
-OutLine.AnchorPoint = Vector2.new(0.5, 0.5)
-OutLine.Size = UDim2.new(0, 52, 0, 52)
-
-OutLineC.CornerRadius = UDim.new(0, 4) 
-OutLineC.Parent = OutLine
-
-TButton.Parent = OutLine
-TButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-TButton.BackgroundTransparency = 0
-TButton.Position = UDim2.new(0.5,0,0.5,0)
-TButton.AnchorPoint = Vector2.new(0.5, 0.5)
-TButton.Size = UDim2.new(0,48,0,48)
-TButton.Image = "rbxassetid://15042983694"
-
-TButtonC.CornerRadius = UDim.new(0, 4) 
-TButtonC.Parent = TButton
-
-TName.Parent = TButton
-TName.BackgroundTransparency = 0
-TName.Position = UDim2.new(0.5,0,0.5,0)
-TName.AnchorPoint = Vector2.new(0.5, 0.5)
-TName.TextColor3 = Color3.fromRGB(227,27,27)
-TName.Font = Enum.Font.Jura
-TName.Text = "ROMHUB"
-TName.TextSize = 13.5
-
-Kavo:DraggingEnabled(TButton, OutLine)
-
-TButton.MouseButton1Click:Connect(function()
-    
-if SQISJDDNKS then
-getgenv().SQISJDDNKS = false
- Kavo:ToggleUI() 
-game:GetService("TweenService"):Create(OutLine, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
-            { Size = UDim2.new(0,52,0,52) }):Play()
-game:GetService("TweenService"):Create(TButton, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
-            { Size = UDim2.new(0,48,0,48) }):Play()
-game:GetService("TweenService"):Create(TName, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
-            { TextSize = 13.5 }):Play()
- else
-getgenv().SQISJDDNKS = true
-Kavo:ToggleUI()
-game:GetService("TweenService"):Create(OutLine, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
-            { Size = UDim2.new(0,47,0,47) }):Play()
-game:GetService("TweenService"):Create(TButton, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
-            { Size = UDim2.new(0,43,0,43) }):Play()
-game:GetService("TweenService"):Create(TName, TweenInfo.new(0.4, Enum.EasingStyle.Quint),
-            { TextSize = 12 }):Play()
-end            
-end)
-
-
-local markgrandient = Instance.new("UIGradient")
-markgrandient.Rotation = 0
-markgrandient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)), ColorSequenceKeypoint.new(1, Color3.fromRGB(227,27,27))}
-markgrandient.Parent = OutLine
-
-spawn(function()
-        while task.wait() do
-                markgrandient.Rotation = markgrandient.Rotation + 2
-        end
-    end) 
-
-else
-
 local Click = Instance.new("Sound")
 Click.Parent = workspace
 
@@ -530,7 +447,6 @@ Content.TextTransparency = 1
 Click:Play()
 end
 end)
-end
     local ScreenGui = Instance.new("ScreenGui")
     local Main = Instance.new("Frame")
     local MainCorner = Instance.new("UICorner")
@@ -1201,85 +1117,6 @@ end)
 
 
 
-              local DiffToggleDisabled = Instance.new("ImageLabel")
-                    local DiffToggleEnabled = Instance.new("ImageLabel")
-                    local DiffToggleText = Instance.new("TextLabel")                               
-                    local UICorner = Instance.new("UICorner")
-
-                    DiffToggleButton.Name = "DiffToggleButton"
-                    DiffToggleButton.Parent = SettingUI
-                    DiffToggleButton.BackgroundColor3 = themeList.ElementColor
-                    DiffToggleButton.BorderSizePixel = 0
-                    DiffToggleButton.Position = UDim2.new(0,0,0.66,0)
-                    DiffToggleButton.ClipsDescendants = true
-                    DiffToggleButton.Size = UDim2.new(0, 150, 0, 33)
-                    DiffToggleButton.AutoButtonColor = false
-                    DiffToggleButton.Font = Enum.Font.SourceSans
-                    DiffToggleButton.Text = ""
-                    DiffToggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-                    DiffToggleButton.TextSize = 14.000                    
-
-                    UICorner.CornerRadius = UDim.new(0, 4)
-                    UICorner.Parent = DiffToggleButton
-
-                    DiffToggleDisabled.Name = "DiffToggleDisabled"
-                    DiffToggleDisabled.Parent = DiffToggleButton
-                    DiffToggleDisabled.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                    DiffToggleDisabled.BackgroundTransparency = 1.000
-                    DiffToggleDisabled.Position = UDim2.new(0.0199999996, 0, 0.180000007, 0)
-                    DiffToggleDisabled.Size = UDim2.new(0, 21, 0, 21)
-                    DiffToggleDisabled.Image = "rbxassetid://3926309567"
-                    DiffToggleDisabled.ImageColor3 = themeList.SchemeColor
-                    DiffToggleDisabled.ImageRectOffset = Vector2.new(628, 420)
-                    DiffToggleDisabled.ImageRectSize = Vector2.new(48, 48)
-
-                    DiffToggleEnabled.Name = "DiffToggleEnabled"
-                    DiffToggleEnabled.Parent = DiffToggleButton
-                    DiffToggleEnabled.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                    DiffToggleEnabled.BackgroundTransparency = 1.000
-                    DiffToggleEnabled.Position = UDim2.new(0.0199999996, 0, 0.180000007, 0)
-                    DiffToggleEnabled.Size = UDim2.new(0, 21, 0, 21)
-                    DiffToggleEnabled.Image = "rbxassetid://3926309567"
-                    DiffToggleEnabled.ImageColor3 = themeList.SchemeColor
-                    DiffToggleEnabled.ImageRectOffset = Vector2.new(784, 420)
-                    DiffToggleEnabled.ImageRectSize = Vector2.new(48, 48)
-                    DiffToggleEnabled.ImageTransparency = 1.000
-
-                    DiffToggleText.Name = "DiffToggleText"
-                    DiffToggleText.Parent = DiffToggleButton
-                    DiffToggleText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                    DiffToggleText.BackgroundTransparency = 1.000
-                    DiffToggleText.Position = UDim2.new(0.2096704483, 0, 0.272727281, 0)
-                    DiffToggleText.Size = UDim2.new(0, 288, 0, 14)
-                    DiffToggleText.Font = Enum.Font.GothamSemibold
-                    DiffToggleText.Text = "DiffToggle Intro"
-                    DiffToggleText.RichText = true
-                    DiffToggleText.TextColor3 = themeList.TextColor
-                    DiffToggleText.TextSize = 14.000
-                    DiffToggleText.TextXAlignment = Enum.TextXAlignment.Left
-                    
-                    
-
-
-local DiffToggleB = DiffToggleButton
-local DiffToggleEnable = DiffToggleEnabled
-DiffToggleB.MouseButton1Click:Connect(function()
-if DiffToggle then
-_G.SettingSave.DiffToggle = false
-saveSettings()
-getgenv().DiffToggle = false
-DiffToggleEnable.ImageTransparency = 1
-else
-_G.SettingSave.DiffToggle = true
-saveSettings()
-getgenv().DiffToggle = true
-DiffToggleEnable.ImageTransparency = 0             
-end
-end)
-
-
-
-
 
 
 
@@ -1321,15 +1158,7 @@ else
 getgenv().Fast = false
 FastEnable.ImageTransparency = 1
 end                     
-
-if _G.SettingSave.DiffToggleIntro then
-getgenv().DiffToggle = true
-DiffToggleEnable.ImageTransparency = 0
-else
-getgenv().DiffToggle = false
-DiffToggleEnable.ImageTransparency = 1
-end
-
+                     
     coroutine.wrap(function()
         while wait() do
             Main.BackgroundColor3 = themeList.Background
