@@ -381,7 +381,7 @@ Custom.BorderSizePixel = 0
 Custom.ClipsDescendants = true
 Custom.Position = UDim2.new(0.05, 0, 0.5, 0)
 Custom.Size = UDim2.new(0, 32, 0, 32)
-Custom.Image = getcustomasset("ROMHUB//Assets//Rlogo.png"
+Custom.Image = getcustomasset("ROMHUB//Assets//Rlogo.png")
 Custom.ImageTransparency = 0
 
 UICorner_2.Parent = Custom
