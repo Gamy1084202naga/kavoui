@@ -3433,7 +3433,7 @@ end
 	            label.RichText = true
 	            label.TextColor3 = themeList.TextColor
 	            Objects[label] = "TextColor3"
-	            label.TextSize = 14.000
+	            label.TextScaled = true
 	            label.TextXAlignment = Enum.TextXAlignment.Left
 	            
 	           	UICorner.CornerRadius = UDim.new(0, 4)
