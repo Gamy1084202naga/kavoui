@@ -383,6 +383,7 @@ Custom.Position = UDim2.new(0.05, 0, 0.5, 0)
 Custom.Size = UDim2.new(0, 32, 0, 32)
 Custom.Image = getcustomasset("ROMHUB//Assets//Rlogo.png")
 Custom.ImageTransparency = 0
+Custom.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
 UICorner_2.Parent = Custom
 
@@ -405,6 +406,8 @@ game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle
             { Size = UDim2.new(0,112,0,32) }):Play()          
 game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
             { BackgroundColor3 = Color3.fromRGB(255, 255,255) }):Play()
+game:GetService("TweenService"):Create(Custom, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { ImageColor3 = Color3.fromRGB(0, 0, 0) }):Play()
 Content.Text = "Closed"
 Content.TextTransparency = 0
 end
@@ -416,6 +419,8 @@ game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle
             { Size = UDim2.new(0,112,0,32) }):Play()          
 game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
             { BackgroundColor3 = Color3.fromRGB(255, 255,255) }):Play()
+game:GetService("TweenService"):Create(Custom, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { ImageColor3 = Color3.fromRGB(0, 0, 0) }):Play()
 Content.Text = "Closed"
 Content.TextTransparency = 0
 else
@@ -423,6 +428,8 @@ game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle
             { BackgroundColor3 = Color3.fromRGB(0,0,0) }):Play()
 game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0,32,0,32) }):Play()
+game:GetService("TweenService"):Create(Custom, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { ImageColor3 = Color3.fromRGB(255, 255, 255) }):Play()
 Content.Text = ""
 Content.TextTransparency = 1
 end
@@ -436,6 +443,8 @@ game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle
             { Size = UDim2.new(0,112,0,32) }):Play()          
 game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
             { BackgroundColor3 = Color3.fromRGB(255, 255,255) }):Play()
+game:GetService("TweenService"):Create(Custom, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { ImageColor3 = Color3.fromRGB(0, 0, 0) }):Play()
 Content.Text = "Closed"
 Content.TextTransparency = 0
 Click:Play()
@@ -446,6 +455,8 @@ game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle
             { BackgroundColor3 = Color3.fromRGB(0,0,0) }):Play()
 game:GetService("TweenService"):Create(Icon, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0,32,0,32) }):Play()
+game:GetService("TweenService"):Create(Custom, TweenInfo.new(0.1, Enum.EasingStyle.Quint),
+            { ImageColor3 = Color3.fromRGB(255, 255, 255) }):Play()
 Content.Text = ""
 Content.TextTransparency = 1
 Click:Play()
