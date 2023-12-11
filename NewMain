@@ -289,17 +289,17 @@ if _G.SettingSave.FastIntro then
 game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.7, Enum.EasingStyle.Quint),
             { BackgroundTransparency = 0 }):Play()
             
-            wait("0.7")
+            wait("0.5")
             
 game:GetService("TweenService"):Create(Logo, TweenInfo.new(0.8, Enum.EasingStyle.Quint),
             { ImageTransparency = 0 }):Play()          
               
-              wait("0.8")
+              wait("0.6")
               
               game:GetService("TweenService"):Create(Name, TweenInfo.new(0.8, Enum.EasingStyle.Quint),
             { TextTransparency = 0 }):Play()
             
-          wait(0.8)
+          wait(0.6)
 
 game:GetService("TweenService"):Create(Name, TweenInfo.new(0.8, Enum.EasingStyle.Quint),
         { TextTransparency = 1 }):Play()
@@ -307,13 +307,13 @@ game:GetService("TweenService"):Create(Name, TweenInfo.new(0.8, Enum.EasingStyle
 game:GetService("TweenService"):Create(Logo, TweenInfo.new(0.8, Enum.EasingStyle.Quint),
             { ImageTransparency = 1 }):Play()          
 
-            wait("0.8")
+            wait("0.6")
                 
 
             
             game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.75, Enum.EasingStyle.Quint),
             { Size = UDim2.new(0, 525, 0, 318) }):Play()
-wait(0.75)
+wait(0.55)
 
 else
 game:GetService("TweenService"):Create(Frame, TweenInfo.new(3, Enum.EasingStyle.Quint),
@@ -3429,7 +3429,7 @@ end
             	label.Text = title
            	 label.Size = UDim2.new(0, 352, 0, 33)
 	            label.Font = Enum.Font.Gotham
-	            label.Text = "  "..title
+	            label.Text = ""..title
 	            label.RichText = true
 	            label.TextColor3 = themeList.TextColor
 	            Objects[label] = "TextColor3"
