@@ -145,7 +145,7 @@ _G.SettingSave = {
    HideText = false;
    FastIntro = false;
    Fov = "70";
-   BackgroundImage = "15042983694"
+   BackgroundImage = "15042983694";
 }   
 
 if isfolder("ROMHUB") == false then
@@ -1135,7 +1135,6 @@ end)
 
                 local textboxElement = Instance.new("TextButton")
                 local UICorner = Instance.new("UICorner")
-                local viewInfo = Instance.new("ImageButton")
                 local write = Instance.new("ImageLabel")
                 local TextBox = Instance.new("TextBox")
                 local UICorner_2 = Instance.new("UICorner")
@@ -1155,18 +1154,6 @@ end)
 
                 UICorner.CornerRadius = UDim.new(0, 4)
                 UICorner.Parent = textboxElement
-
-                viewInfo.Name = "viewInfo"
-                viewInfo.Parent = textboxElement
-                viewInfo.BackgroundTransparency = 1.000
-                viewInfo.LayoutOrder = 9
-                viewInfo.Position = UDim2.new(0.930000007, 0, 0.151999995, 0)
-                viewInfo.Size = UDim2.new(0, 23, 0, 23)
-                viewInfo.ZIndex = 2
-                viewInfo.Image = "rbxassetid://3926305904"
-                viewInfo.ImageColor3 = themeList.SchemeColor
-                viewInfo.ImageRectOffset = Vector2.new(764, 764)
-                viewInfo.ImageRectSize = Vector2.new(36, 36)
 
                 write.Name = "write"
                 write.Parent = textboxElement
@@ -1213,34 +1200,6 @@ end)
 
                 local btn = textboxElement
                 local infBtn = viewInfo
-
-                btn.MouseButton1Click:Connect(function()
-                    if focusing then
-                        for i,v in next, infoContainer:GetChildren() do
-                            Utility:TweenObject(v, {Position = UDim2.new(0,0,2,0)}, 0.2)
-                            focusing = false
-                        end
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
-                    end
-                end)
-                local hovering = false
-                btn.MouseEnter:Connect(function()
-                    if not focusing then
-                        game.TweenService:Create(btn, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-                            BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 + 8, themeList.ElementColor.g * 255 + 9, themeList.ElementColor.b * 255 + 10)
-                        }):Play()
-                        hovering = true
-                    end 
-                end)
-
-                btn.MouseLeave:Connect(function()
-                    if not focusing then
-                        game.TweenService:Create(btn, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-                            BackgroundColor3 = themeList.ElementColor
-                        }):Play()
-                        hovering = false
-                    end
-                end)
 function isNumber(str)
 	if tonumber(str) ~= nil or str == 'inf' then
 		return true
@@ -1248,13 +1207,6 @@ function isNumber(str)
 end
 
                 TextBox.FocusLost:Connect(function(EnterPressed)
-                    if focusing then
-                        for i,v in next, infoContainer:GetChildren() do
-                            Utility:TweenObject(v, {Position = UDim2.new(0,0,2,0)}, 0.2)
-                            focusing = false
-                        end
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
-                    end
                     if not EnterPressed then 
                        if TextBox.Text ~= _G.SettingSave.BackgroundImage then
                        if isNumber(TextBox.Text) then
@@ -1264,7 +1216,7 @@ end
                         end
                       end
                     else
-                        if TextBox.Text ~= _G.SettingSave.BackgroundImage then
+                if TextBox.Text ~= _G.SettingSave.BackgroundImage then
                        if isNumber(TextBox.Text) then
                         _G.SettingSave.BackgroundImage = TextBox.Text
                         saveSettings()
@@ -1273,48 +1225,6 @@ end
                        end
                     end
                 end)
-
-                viewInfo.MouseButton1Click:Connect(function()
-                    if not viewDe then
-                        viewDe = true
-                        focusing = true
-                        for i,v in next, infoContainer:GetChildren() do
-                            if v ~= moreInfo then
-                                Utility:TweenObject(v, {Position = UDim2.new(0,0,2,0)}, 0.2)
-                            end
-                        end
-                        Utility:TweenObject(moreInfo, {Position = UDim2.new(0,0,0,0)}, 0.2)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)
-                        Utility:TweenObject(btn, {BackgroundColor3 = themeList.ElementColor}, 0.2)
-                        wait(1.5)
-                        focusing = false
-                        Utility:TweenObject(moreInfo, {Position = UDim2.new(0,0,2,0)}, 0.2)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
-                        wait(0)
-                        viewDe = false
-                    end
-                end)
-                coroutine.wrap(function()
-                    while wait() do
-                        if not hovering then
-                            textboxElement.BackgroundColor3 = themeList.ElementColor
-                        end
-                        TextBox.BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 - 6, themeList.ElementColor.g * 255 - 6, themeList.ElementColor.b * 255 - 7)
-                        viewInfo.ImageColor3 = themeList.SchemeColor
-                        moreInfo.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
-                        moreInfo.TextColor3 = themeList.TextColor
-                        write.ImageColor3 = themeList.SchemeColor
-                        togName.TextColor3 = themeList.TextColor
-                        TextBox.PlaceholderColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 19, themeList.SchemeColor.g * 255 - 26, themeList.SchemeColor.b * 255 - 35)
-                        TextBox.TextColor3 = themeList.SchemeColor
-                    end
-                
-
-
-
-
-
-
 
 if _G.SettingSave.Anonymous then
 getgenv().anonymous = true
