@@ -145,7 +145,7 @@ _G.SettingSave = {
    HideText = false;
    FastIntro = false;
    Fov = "70";
-   BackgroundImage = "15042983694";
+   BackgroundImage = 15042983694;
 }   
 
 if isfolder("ROMHUB") == false then
