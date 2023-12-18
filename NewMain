@@ -873,6 +873,7 @@ UICorner.CornerRadius = UDim.new(0, 4)
                 SettingUI.Position = UDim2.new(2,0,0.598,0)
                 SettingUI.Size = UDim2.new(0, 150, 0, 320)
                 SettingUI.ZIndex = 9
+                SettingUI.ScrollBarThickness = 5
                 SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
         pageListing.Name = "pageListing"
         pageListing.Parent = SettingUI
