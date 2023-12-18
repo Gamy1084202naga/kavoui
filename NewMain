@@ -145,7 +145,7 @@ _G.SettingSave = {
    HideText = false;
    FastIntro = false;
    Fov = "70";
-   BackgroundImage = 15042983694;
+   BackgroundImage = "rbxassetid://15042983694";
 }   
 
 if isfolder("ROMHUB") == false then
@@ -537,7 +537,7 @@ end)
     Background.ClipsDescendants = true
     Background.Position = UDim2.new(0, 99, 0, 29)
     Background.Size = UDim2.new(0, 525, 0, 318)
-    Background.Image = "rbxassetid://" .. _G.SettingSave.BackgroundImage
+    Background.Image = _G.SettingSave.BackgroundImage
     Background.ImageTransparency = 0.4
     
     BackgroundCorner.CornerRadius = UDim.new(0, 4)
@@ -1200,30 +1200,22 @@ end)
 
                 local btn = textboxElement
                 local infBtn = viewInfo
-function isNumber(str)
-	if tonumber(str) ~= nil or str == 'inf' then
-		return true
-	end
-end
-
                 TextBox.FocusLost:Connect(function(EnterPressed)
                     if not EnterPressed then 
-                       if TextBox.Text ~= _G.SettingSave.BackgroundImage then
-                       if isNumber(TextBox.Text) then
-                        _G.SettingSave.BackgroundImage = TextBox.Text
+                        id = "rbxassetid://" .. TextBox.Text
+                       if id ~= _G.SettingSave.BackgroundImage then
+                        _G.SettingSave.BackgroundImage = id
                         saveSettings()
-                        Background.Image = "rbxassetid://" .. _G.SettingSave.BackgroundImage
-                        end
-                      end
-                    else
-                if TextBox.Text ~= _G.SettingSave.BackgroundImage then
-                       if isNumber(TextBox.Text) then
-                        _G.SettingSave.BackgroundImage = TextBox.Text
-                        saveSettings()
-                        Background.Image = "rbxassetid://" .. _G.SettingSave.BackgroundImage
-                        end
-                       end
+                        Background.Image = _G.SettingSave.BackgroundImage
                     end
+                    else
+                id = "rbxassetid://" .. TextBox.Text
+                       if id ~= _G.SettingSave.BackgroundImage then
+                        _G.SettingSave.BackgroundImage = id
+                        saveSettings()
+                        Background.Image = _G.SettingSave.BackgroundImage
+                    end
+                end
                 end)
 
 if _G.SettingSave.Anonymous then
