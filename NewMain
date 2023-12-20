@@ -537,7 +537,7 @@ end)
     Background.ClipsDescendants = true
     Background.Position = UDim2.new(0, 99, 0, 29)
     Background.Size = UDim2.new(0, 525, 0, 318)
-    Background.Image = "" .. _G.SettingSave.BackgroundImage .. ""
+    Background.Image = _G.SettingSave.BackgroundImage
     Background.ImageTransparency = 0.4
     
     BackgroundCorner.CornerRadius = UDim.new(0, 4)
