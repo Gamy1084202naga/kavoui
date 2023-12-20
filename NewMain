@@ -1194,7 +1194,7 @@ local textboxElement = Instance.new("TextButton")
                 togName.Text = "Background Image"
                 togName.RichText = true
                 togName.TextColor3 = themeList.TextColor
-                togName.TextSize = 10.000
+                togName.TextSize = 12.000
                 togName.TextXAlignment = Enum.TextXAlignment.Left
 function isNumber(str)
 	if tonumber(str) ~= nil or str == 'inf' then
